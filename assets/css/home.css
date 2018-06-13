@@ -1,0 +1,192 @@
+
+/*
+
+Author: Bootstrapthemes
+Author URI: http://bootstrapthemes.co
+
+*/
+
+/* banner section */
+.banner{
+	background:#FAD000;
+}
+
+.carousel-caption {
+	padding-bottom: 30px;
+	top: 90px;
+}
+.carousel-caption p{
+	font-size:50px;
+	font-family: 'big_johnregular';
+	line-height: 60px;
+	color:#000;
+}
+
+.carousel-caption .btn_bg {
+    background: url(../images/separetor3.png) no-repeat center center;
+    width: 65%;
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    padding-top: 385px;
+}
+.carousel-caption .btn_bg a {
+    position: absolute;
+    left: 33%;
+    top: 136px;
+    background: #fad663;
+    border: 2px solid #000;
+    border-radius: 15px 15px 15px 15px;
+}
+
+
+/* Scroll Down*/
+.scrolldown {
+	padding-top: 24px;
+}
+
+.banner .scroll_btn {
+	background: url(../images/scroll.gif) 50% 50% no-repeat rgba(215, 181 ,94, 0);
+	border: 2px solid #fff;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	display: block;
+	height: 45px;
+	margin: 10px auto;
+	-webkit-transition: all 500ms ease-in-out 0s;
+	-moz-transition: all 500ms ease-in-out 0s;
+	-ms-transition: all 500ms ease-in-out 0s;
+	-0-transition: all 500ms ease-in-out 0s;
+	transition: all 500ms ease-in-out 0s;
+	width: 45px;
+}
+
+.banner .scroll_btn:hover {
+	background: url(../images/scroll.gif) 50% 50% no-repeat;
+	opacity: .85;
+	-moz-opacity: .85;
+	-o-opacity: .85;
+	-webkit-opacity: .85;
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+
+}
+
+.scroll_btnall {
+	background: url(../images/scroll.gif) 50% 50% no-repeat rgba(215, 181 ,94, 0);
+	border: 2px solid #fff;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	display: block;
+	height: 45px;
+	margin: 42px auto;
+	-webkit-transition: all 500ms ease-in-out 0s;
+	-moz-transition: all 500ms ease-in-out 0s;
+	-ms-transition: all 500ms ease-in-out 0s;
+	-0-transition: all 500ms ease-in-out 0s;
+	transition: all 500ms ease-in-out 0s;
+	width: 45px;
+}
+
+.scroll_btnall:hover {
+	background: url(../images/scroll.gif) 50% 50% no-repeat #000;
+	opacity: .85;
+	-moz-opacity: .85;
+	-o-opacity: .85;
+	-webkit-opacity: .85;
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+
+}
+
+
+/* head title */
+.head_title{
+    overflow:hidden;
+}
+
+
+/* what we do */
+.whatwedo{
+	background:#fef9fd;
+	padding:80px 0px;
+}
+.whatwedo .head_title h2{}
+
+.head_title_rigth {
+	margin: 40px 0px;
+}
+.head_title_rigth p{
+	font-size:18px;
+	font-family: 'open_sanslight';
+	color:#000000;
+}
+
+.single_whatwedo{
+	margin-top: 50px;
+}
+.single_whatwedo_img{
+	margin-bottom:30px;
+}
+.single_whatwedo_img img{
+	width:130px;
+	height:100px;
+}
+.single_whatwedo h3{
+	font-size:18px;
+	font-family: 'big_johnregular';
+}
+.single_whatwedo p{
+	font-size:18px;
+}
+
+/* client said section */
+.clientsaid{
+    background:#d2eae3;
+    padding:80px 0px;
+}
+
+.star-checked {
+    color: orange;
+}
+
+/* new products section */
+.newproducts{
+	padding:80px 0px;
+	overflow:hidden;
+}
+.main_newproducts_content{
+	margin-top:80px;
+}
+.single_product_column{
+	padding:0;
+	border:1px solid #ddd;
+}
+.single_product img{
+	width:100%;
+}
+
+.btn_bg {
+    background: url(../images/separetor3.png) no-repeat center center;
+    width: 65%;
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    margin-top: 60px;
+}
+.btn_bg a{
+    position: absolute;
+    left: 42%;
+    top: -50px;
+    background: #fad663;
+    border: 2px solid #000;
+    border-radius: 15px 15px 15px 15px;
+}

@@ -1,24 +1,24 @@
-# bakaichi_bakery_app
-# GLWTPL (Good Luck With That Public License)
+# BAKAICHI BAKERY APP
 
-If you have *that* feeling about your code...
+
+Add new database with name 'bakaichi_bakery_app'
+And Run SQL query/queries on database bakaichi_bakery_app
 
 ```
-When I wrote this, only God and I understood what I was doing.
-Now, only God knows.
+/*==============================================================*/
+/* DBMS name:      MySQL 5.0                                    */
+/* Created on:     16/04/2018 09:19:47 AM                       */
+/*==============================================================*/
+
+/*Blablablascriptoverhereblablablascriptoverhereblablablascriptoverhere*/
 ```
 
 ...think no further and include [this LICENSE](./LICENSE) to your project!
-
-It has a [NSFW version](./NSFW_LICENSE) too. Cheers!
 
 ### Possible Use Cases
 - You wrote some code but not quite proud of it, yet want to release it.
 - You want to make free your code in the wild and want no responsibility for it.
 - "Whatever done is done", and you don't have time/intention to fix, modify or improve your code any further
 
-### Translation
-* [Simplified Chinese 简体中文](translations/LICENSE_zh-CN)
-
 ### License
-This project is licensed under [GLWTPL](./LICENSE)
+This project is licensed under [MGDGSD.MEDIA](./mgdgsd_license)
