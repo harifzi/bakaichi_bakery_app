@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <!--<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
-
         <!--For Plugins external css-->
         <link rel="stylesheet" href="assets/css/plugins.css" />
 
@@ -96,7 +95,8 @@
 
 									<div class="contact_adress">
 										<p>Fill out the form and Bakaichi Bakery team will contact you</p>
-										<h3>Maps</h3>
+                                        <p>Btw, we're here</p>
+										<div id="map" style="width:100%;height:360px"></div>
 									</div>
 								
 								</div>
@@ -115,7 +115,6 @@
         <?php include ('footer.php'); ?>
         <!-- End of Contact Section -->
 
-
         <!-- STRAT SCROLL TO TOP -->
         <div class="scrollup">
             <a href="#"><i class="fa fa-chevron-up"></i></a>
@@ -127,10 +126,44 @@
 
         <script src="assets/js/jquery.easypiechart.min.js"></script>
         <script src="assets/js/jquery.mixitup.min.js"></script>
-        
             
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
-        
+
+        <!--  Google Maps Plugin    -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSASGdmgYfwO40Vi23JS8DVFZ1YqAvgNg"></script>
+        <script>
+            var locations = [
+                ['Jalan Raya Darmo No.12, DR. Soetomo, Tegalsari, Surabaya', -7.278318, 112.740791],
+            ];
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 18,
+              disableDefaultUI: true,
+              center: new google.maps.LatLng(-7.278318, 112.740791),
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {  
+              marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map,
+                animation: google.maps.Animation.BOUNCE
+              });
+
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  infowindow.setContent(locations[i][0]);
+                  infowindow.open(map, marker);
+                }
+              })(marker, i));
+            }
+
+        </script>
+
     </body>
 </html>

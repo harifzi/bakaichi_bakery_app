@@ -212,14 +212,14 @@
 			<div class="main_newproducts_content text-center">
 				<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s">
 					<div class="single_product">
-						<img src="assets/images/tora_tiramisu.jpg" alt="" />
+						<img src="assets/gallery/tora_tiramisu.jpg" alt="" />
 						<p>Tora Tiramisu<br/>Price: RP 140.000<br/></p>
 					</div>
 				</div>
 
 				<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s">
 					<div class="single_product">
-						<img src="assets/images/rocky_cookie_mini.jpg" alt="" />
+						<img src="assets/gallery/rocky_cookie_mini.jpg" alt="" />
 						<p>Rocky Cookie Mini<br/>Price: RP 70.000<br/></p>
 					</div>
 				</div>

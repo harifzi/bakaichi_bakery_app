@@ -61,29 +61,81 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="2s">
                         <div class="contact_message">
                             <form action="#" id="formid">
-                                <label for="">Name</label>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="Name" required="">
-                                </div>
-                                
-                                <label for="">Email</label>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required="">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label for="">First Name</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="first_name" placeholder="First Name" required="">
+                                    </div>
                                 </div>
 
-                                <label for="">Message</label>
-                                <div class="form-group">
-                                    <textarea class="form-control" name="message" rows="8" placeholder="Message"></textarea>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label for="">Last Name</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name" required="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="">Email</label>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="">Address</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="address" placeholder="Address" required="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label for="">Zip Code</label>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" name="zip_code" placeholder="Zip Code" required="">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label for="">Fax Number</label>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" name="fax_number" placeholder="Fax Number" required="">
+                                    </div>
+                                </div>
+
+                               <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label for="">Username</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username" placeholder="Username" required="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label for="">Password</label>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="password" placeholder="Password" required="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class="checkbox form-group">
+                                      <label>
+                                        <input type="checkbox" value="">
+                                        I Agree to the <a href="terms_and_conditions.php" target="_blank">Terms &amp; Conditions</a>
+                                      </label>
+                                    </div>
                                 </div>
 
                                 <div class="message_btn text-center">
                                     <div class="btn_bg">
-                                        <a href="" class="btn">Send</a>
+                                        <a href="" class="btn">Register</a>
                                     </div>
-                                </div>
+                                </div><br/><br/><br/><br/><br/><br/>
                             </form>
                         </div>
                     </div>
+
+                    <p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a> x mgdgsd.media</small></p>
 
                     
                 </div>

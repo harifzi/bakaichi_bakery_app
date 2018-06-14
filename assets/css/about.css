@@ -1,0 +1,32 @@
+/* Banner section */
+.banner{
+	background:#FAD000;
+}
+
+/* About Section */
+.about {
+    overflow:hidden;
+    padding:80px 0px;
+}
+
+.single_about{
+    margin-top: 50px;
+}
+
+.single_about_img{
+    margin-bottom:30px;
+}
+
+.single_about h3{
+    font-size: 18px;
+    font-family: 'big_johnregular';
+    line-height: 50px;
+}
+.single_about h3 span{
+    font-size:48px;
+    display:block;
+}
+
+.single_about p{
+    font-size:18px;
+}
