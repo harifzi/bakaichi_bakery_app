@@ -36,11 +36,10 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div class='preloader'><div class='loaded'>&nbsp;</div></div>
-        <!-- Header Section -->
+        
         <?php include('header.php'); ?>
         <!--End of Header Section -->
 
-        <!-- Signup Section -->
         <section id="signup_section" class="signup">
             <div class="container">
                 
@@ -142,7 +141,7 @@
                 
             </div>
         </section>
-        <!-- End of Contact With Map Section -->
+        <!-- End of Signup Section -->
 
         <!-- STRAT SCROLL TO TOP -->
         <div class="scrollup">

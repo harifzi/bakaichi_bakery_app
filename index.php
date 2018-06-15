@@ -36,11 +36,10 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
-        <!-- Header Section -->
+        
         <?php include('header.php'); ?>
-        <!--End of Header Section -->
+        <!--End of Header -->
 
-        <!-- Banner Section -->
         <section id="banner_section" class="banner">
             <div class="banner_overlay">
             <div class="container">
@@ -75,7 +74,6 @@
         </section>
         <!-- End of Banner Section -->
 
-        <!-- What We Do -->
         <section id="whatwedo_section" class="whatwedo">
 		    <div class="container">
 		        <div class="row">
@@ -194,9 +192,9 @@
 				</div>
 			</div>
 		</section>
+		<!-- End of Client Said -->
 
-		<!-- New Product Section -->
-        <section id="newproducts_section" class="newproducts">
+		<section id="newproducts_section" class="newproducts">
             <div class="container">
                 <div class="row">	
 					<div class="col-md-offset-6 col-sm-offset-6 col-md-6 col-sm-6 col-xs-12">
@@ -233,9 +231,8 @@
         </section>
         <!-- End of New Product Section -->
 
-        <!-- Contact Section -->
         <?php include ('footer.php'); ?>
-        <!-- End of Contact Section -->
+        <!-- End of Footer -->
 
         <!-- STRAT SCROLL TO TOP -->
         <div class="scrollup">

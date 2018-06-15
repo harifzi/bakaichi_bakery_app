@@ -1,0 +1,57 @@
+/*-------------------------------------------------------------------------------
+ Login Style Strat
+-------------------------------------------------------------------------------*/
+.login-wrapper{ height: 100%; height: 100vh;  width: 100%;font-family: 'Poppins', sans-serif;; }
+.bg-image{ background-repeat: no-repeat; background-position:  center top; position: relative; background-size: cover }
+.bg-image:before{position: absolute; left: 0; right: 0; top: 0;bottom: 0;   width: 100%; height: 100%; display: block;content: "";}
+.bg-image .container{ position: relative; z-index: 1; text-align: center; }
+.login-wrapper.bg-image:before{background-color: rgba(0,90,217,0.4);}
+.login-pan{ display: table;height: 100%; height: 100vh;    width: 100%;}
+.login-box-pan{ display: table-cell; vertical-align: middle;  }
+.login-box{background-color: #FFF; width: 100%; max-width:400px; display: block; margin: 0 auto; text-align: left; padding: 60px 50px; position: relative; border-radius: 3px;}
+.login-box h3{ margin: 0; color: #3f404b; font-size: 20px; padding-bottom: 16px ;font-family: 'Poppins', sans-serif; text-transform: uppercase;}
+.login-box p{ margin: 0; color: #3f404b; font-size: 14px; ; padding-bottom: 16px ;font-family: 'Poppins', sans-serif;;}
+.login-box .form-control{border-radius: 0; box-shadow: none; border-top: none; border-left: none; border-right: none; border-width: 2px; padding-left: 0; color: #3f404b; font-size: 14px;padding-bottom: 30px; padding-top:30px}
+
+.check-pass { padding-top: 11px; padding-bottom: 30px }
+.check-pass .checkbox,.check-pass .for-pass{ display: inline-block; vertical-align: middle;width: 49%; font-size: 14px; font-size: 1.4rem;text-align: left; }
+.checkbox label{color: #3f404b }
+.check-pass .for-pass{ text-align: right; color: #3f404b }
+.check-pass .for-pass:hover{text-decoration: underline;}
+.login-box .button-submit{ display: block; margin: 0 auto; width: 258px; height: 51px; line-height: 51px; border-radius:60px; border: none; outline: none; cursor: pointer; background-color: #73c881; font-size: 18px; color: #FFF; font-weight: 600; text-transform: uppercase;font-family: 'Poppins', sans-serif;; }
+.login-box .button-submit:hover{ background-color: #4eb75f }
+.accounttext{ display: block; text-align: center; color: #3f404b; font-size: 14px; font-size: 1.4rem; padding-top: 19px }
+.accounttext .sign-toggle{ text-decoration: underline; cursor: pointer; background-color: transparent; border: none; outline: none; color: #6173f7  }
+.accounttext .sign-toggle:hover{ color: #000 }
+.login-box .close{ position: absolute; top:20px; right: 20px; font-size: 26px; color: #74777a; opacity: 1;font-family: 'Poppins', sans-serif;; font-weight: 300 }
+.checkbox input[type=checkbox]:focus,.checkbox label:focus{ outline: 0px auto -webkit-focus-ring-color !important; }
+.logopan{ text-align: center; display: block; padding-bottom:30px }
+.logopan a{ display: inline-block; }
+.checkbox .icheckbox{ width: 20px; height: 20px; border: 1px solid #d8d8d8;display: inline-block; float: left; }
+.icheckbox.checked:after{position: absolute; left: 3px; right: 0; top: 0;  content: "\f00c"; font-family: 'FontAwesome';}
+/*-------------------------------------------------------------------------------
+ Login Style Responsiv
+-------------------------------------------------------------------------------*/
+
+@media (max-width: 767px) {
+.login-box{ padding:5%; max-width: 100% }
+.login-box h3{ padding-bottom: 15px }
+.login-box input[type="text"].form-control{ margin-bottom: 0 }
+.check-pass{ padding-bottom: 11px }
+.login-box .form-control{ padding-bottom: 18px; padding-top: 18px }
+.otheraccount .social{ margin: 2px }
+
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+

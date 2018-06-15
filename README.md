@@ -13,7 +13,7 @@ And Run SQL query/queries on database bakaichi_bakery_app
 /*Blablablascriptoverhereblablablascriptoverhereblablablascriptoverhere*/
 ```
 
-...think no further and include [this LICENSE](./LICENSE) to your project!
+...Blablablaidontknowbout [this](./README.md)!
 
 ### Possible Use Cases
 - You wrote some code but not quite proud of it, yet want to release it.
@@ -21,4 +21,4 @@ And Run SQL query/queries on database bakaichi_bakery_app
 - "Whatever done is done", and you don't have time/intention to fix, modify or improve your code any further
 
 ### License
-This project is licensed under [MGDGSD.MEDIA](./mgdgsd_license)
+This project is licensed under [mgdgsd.media](./LICENSE.md)

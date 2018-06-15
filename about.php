@@ -36,11 +36,10 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
-        <!-- Header Section -->
+        
         <?php include('header.php'); ?>
-        <!--End of Header Section -->
+        <!--End of Header -->
 
-        <!-- Banner Section -->
         <section id="banner_section" class="banner">
             <div class="banner_overlay">
             <div class="container">
@@ -101,11 +100,11 @@
                     </div>
                 </div>
             </div>
-        </section><!-- End of Features Section -->
+        </section>
+        <!-- End of Features Section -->
 
-        <!-- Contact Section -->
         <?php include ('footer.php'); ?>
-        <!-- End of Contact Section -->
+        <!-- End of Footer -->
 
         <!-- STRAT SCROLL TO TOP -->
         <div class="scrollup">

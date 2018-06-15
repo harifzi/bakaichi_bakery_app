@@ -36,12 +36,11 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
-        <!-- Header Section -->
+        
         <?php include('header.php'); ?>
-        <!--End of Header Section -->
+        <!--End of Header -->
 
-        <!-- Sigin Section -->
-		<section id="signin_section" class="signin">
+        <section id="signin_section" class="signin">
             <div class="container">
                 <div class="row">
                    
@@ -74,7 +73,7 @@
                 </div>
             </div>
         </section>
-        <!-- End of Sigin Section -->
+        <!-- End of Signin Section -->
 
         <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
         <script src="assets/js/vendor/bootstrap.min.js"></script>
