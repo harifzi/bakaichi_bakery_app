@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ADMIN - BAKAICHI BAKERY</title>
+        <title>Bakaichi Bakery</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable = no">
         <!-- google font -->
-       <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,600,600i,700,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,600,600i,700,700i" rel="stylesheet">
         <!-- google font -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/icon.png">
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <!-- Login style -->

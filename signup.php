@@ -9,6 +9,7 @@
         <title>Bakaichi Bakery</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="assets/images/icon.png">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <!--<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,600,700' rel='stylesheet' type='text/css'>-->
