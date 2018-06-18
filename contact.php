@@ -37,7 +37,7 @@
         <![endif]-->
 		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
         
-        <?php include('header.php'); ?>
+        <?php include('layouts/header.php'); ?>
         <!--End of Header -->
 
         <section id="banner_section" class="banner">
@@ -110,7 +110,7 @@
         </section>
         <!-- End of Contact With Map Section -->
 
-        <?php include ('footer.php'); ?>
+        <?php include ('layouts/footer.php'); ?>
         <!-- End of Footer -->
 
         <!-- STRAT SCROLL TO TOP -->

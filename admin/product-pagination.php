@@ -1,6 +1,6 @@
 <?php 
 // *************** <PAGING_SECTION> ***************
-echo "<nav class='overflow-hidden margin-bottom-1em'>";
+echo '<center><nav class="overflow-hidden margin-bottom-1em">';
     echo "<ul class='pagination pull-left margin-zero'>";
  
     // ***** for 'first' and 'previous' pages
@@ -64,6 +64,6 @@ echo "<nav class='overflow-hidden margin-bottom-1em'>";
   
     echo "</ul>";
  
-echo "</nav>";
+echo "</nav></center>";
 // *************** </PAGING_SECTION> ***************
 ?>

@@ -38,7 +38,7 @@
         <![endif]-->
         <div class='preloader'><div class='loaded'>&nbsp;</div></div>
         
-        <?php include('header.php'); ?>
+        <?php include('layouts/header.php'); ?>
         <!--End of Header Section -->
 
         <section id="signup_section" class="signup">
@@ -135,7 +135,7 @@
                         </div>
                     </div>
 
-                    <p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a> x mgdgsd.media</small></p>
+                    <p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>
 
                     
                 </div>

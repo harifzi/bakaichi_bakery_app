@@ -28,7 +28,7 @@ $(document).ready(function(){
 
         // fade out effect first
         $('#page-content').fadeOut('slow', function(){
-            $('#page-content').load('create_form.php', function(){
+            $('#page-content').load('product-create-form.php', function(){
 
                 // hide loader image
                 $('#loader-image').hide();
@@ -85,7 +85,7 @@ function showProducts(page){
  
     // fade out effect first
     $('#page-content').fadeOut('slow', function(){
-        $('#page-content').load('read.php?page=' + page, function(){
+        $('#page-content').load('product-read.php?page=' + page, function(){
             // hide loader image
             $('#loader-image').hide();
  
@@ -103,7 +103,7 @@ $(document).on('submit', '#create-product-form', function() {
     $('#loader-image').show();
 
     // post the data from the form
-    $.post("create.php", $(this).serialize())
+    $.post("product-create.php", $(this).serialize())
         .done(function(data) {
 
             // show create product button
@@ -138,7 +138,7 @@ $(document).on('click', '.edit-btn', function(){
 
     // fade out effect first
     $('#page-content').fadeOut('slow', function(){
-        $('#page-content').load('update_form.php?product_id=' + product_id, function(){
+        $('#page-content').load('product-update-form.php?product_id=' + product_id, function(){
             // hide loader image
             $('#loader-image').hide();
 
@@ -155,7 +155,7 @@ $(document).on('submit', '#update-product-form', function() {
     $('#loader-image').show();
      
     // post the data from the form
-    $.post("update.php", $(this).serialize())
+    $.post("product-update.php", $(this).serialize())
         .done(function(data) {
              
             // show create product button
@@ -179,7 +179,7 @@ $(document).on('click', '.delete-btn', function(){
         var product_id = $(this).closest('td').find('.product-id').text();
          
         // trigger the delete file
-        $.post("delete.php", { id: product_id })
+        $.post("product-delete.php", { id: product_id })
             .done(function(data){
                 console.log(data);
                  

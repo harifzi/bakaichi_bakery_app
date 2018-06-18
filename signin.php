@@ -38,7 +38,7 @@
         <![endif]-->
 		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
         
-        <?php include('header.php'); ?>
+        <?php include('layouts/header.php'); ?>
         <!--End of Header -->
 
         <section id="signin_section" class="signin">
@@ -67,7 +67,7 @@
 									<a href="" class="btn">Sign in</a>
 								</div>
 							</div>
-							<br/><br/><p class="text-center"><small>Not registered? <a href="signup.php">Create an account</a></small></p><br/><br/><br/><p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a> x mgdgsd.media</small></p>
+							<br/><br/><p class="text-center"><small>Not registered? <a href="signup.php">Create an account</a></small></p><br/><br/><br/><p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>
 						</form>
 					</div>
 

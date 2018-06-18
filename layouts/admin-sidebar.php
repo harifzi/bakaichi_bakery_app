@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="black" data-image="assets/images/sidebar-5.jpg">
+<div class="sidebar" data-color="black" data-image="../assets/images/sidebar-5.jpg">
 
     <!--
 
@@ -9,32 +9,32 @@
 
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="admin-dashboard.php" class="simple-text">
+            <a href="index.php" class="simple-text">
                 Bakaichi Bakery
             </a>
         </div>
 
         <ul class="nav">
             <li>
-                <a href="admin-dashboard.php">
+                <a href="index.php">
                     <i class="pe-7s-graph"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
             <li>
-                <a href="admin-profile.php">
+                <a href="profile.php">
                     <i class="pe-7s-user"></i>
                     <p>User Profile</p>
                 </a>
             </li>
             <li>
-                <a href="admin-product-list.php">
+                <a href="product-list.php">
                     <i class="pe-7s-note2"></i>
                     <p>Product List</p>
                 </a>
             </li>
             <li>
-                <a href="admin-invoice-list.php">
+                <a href="invoice-list.php">
                     <i class="pe-7s-news-paper"></i>
                     <p>Invoice List</p>
                 </a>

@@ -3,7 +3,7 @@ class Database{
      
     // database credentials
     private $host = "localhost";
-    private $db_name = "phpajaxcrudlevel1";
+    private $db_name = "bakaichi_bakery_app";
     private $username = "root";
     private $password = "";
     public $conn;

@@ -40,7 +40,7 @@
 			
 				<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown"  data-wow-duration="3s">
 					<div class="single_copyirgth text-left">
-						<p>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a> x mgdgsd.media</p>
+						<p>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></p>
 					</div>
 				</div>
 				

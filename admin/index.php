@@ -1,9 +1,8 @@
-
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/images/icon.png">
+	<link rel="icon" type="image/png" href="../assets/images/icon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>Bakaichi Bakery</title>
@@ -13,31 +12,31 @@
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="assets/css/animate.min.css" rel="stylesheet"/>
-    <link href="assets/css/admin-style.css" rel="stylesheet"/>
+    <link href="../assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="../assets/css/admin-style.css" rel="stylesheet"/>
 
     <!--  Light Bootstrap Table core CSS    -->
-    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+    <link href="../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
 <body>
 
 <div class="wrapper">
     
-    <?php include ('admin-sidebar.php'); ?>
+    <?php include ('../layouts/admin-sidebar.php'); ?>
     <!-- End of Sidebar -->
 
     <div class="main-panel">
         
-        <?php include ('admin-nav.php'); ?>
+        <?php include ('../layouts/admin-nav.php'); ?>
         <!-- End of Navbar -->
 
         <div class="content">
@@ -175,7 +174,7 @@
             </div>
         </div>
 
-        <?php include('admin-footer.php'); ?>
+        <?php include('../layouts/admin-footer.php'); ?>
         <!-- End of Footer -->
 
     </div>
@@ -185,20 +184,17 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
+	<script src="../assets/js/chartist.min.js"></script>
 
     <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
+    <script src="../assets/js/bootstrap-notify.js"></script>
+    
     <!-- Light Bootstrap Table Core javascript -->
-	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+	<script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 	<!-- Light Bootstrap Table main -->
 	<!-- <script src="assets/js/admin-main.js"></script> -->

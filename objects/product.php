@@ -3,14 +3,14 @@ class Product{
 
     // database connection and table name
     private $conn;
-    private $table_name = "products";
+    private $table_name = "kue";
 
     // object properties
-    public $id;
-    public $name;
-    public $description;
-    public $price;
-    public $created;
+    public $kue_id;
+    public $jenis_kue_id;
+    public $nama_kue;
+    public $harga_kue;
+    public $deskripsi_kue;
 
     // constructor with $db as database connection
     public function __construct($db){
@@ -42,9 +42,13 @@ class Product{
         $stmt->bindParam(":created", $this->created);
 
         // execute query
-        if($stmt->execute()){
+        if($stmt->execute())
+        {
             return true;
-        }else{
+        }
+        
+        else
+        {
             return false;
         }
     }
@@ -54,11 +58,11 @@ class Product{
 
         // select all query
         $query = "SELECT
-                    id, name, description, price, created
+                    kue_id, jenis_kue_id, nama_kue, harga_kue, deskripsi_kue
                 FROM
                     " . $this->table_name . "
                 ORDER BY
-                    id DESC
+                    kue_id DESC
                 LIMIT
                     ?, ?";
 
