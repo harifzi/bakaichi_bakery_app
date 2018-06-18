@@ -25,6 +25,11 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <style type="text/css">
+    .display-none{
+        display:none;
+    }
+    </style>
 
 </head>
 <body>
@@ -45,50 +50,35 @@
                    
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="header">
-                                <center><h4 class="title">202 Awesome Stroke Icons</h4></center><br/>
-                            </div>
                             
-                            <div class="places-buttons">
-                                <div class="row">
-                                    <div class="col-md-2 col-md-offset-3">
-                                        <button class="btn btn-default btn-block" onclick="demo.showNotification('bottom','left')">Bottom Left</button>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-default btn-block" onclick="demo.showNotification('bottom','center')">Bottom Center</button>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-default btn-block" onclick="demo.showNotification('bottom','right')">Bottom Right</button>
+                            <div class="row">
+                                <div class="header">
+                                    <center><h4 class="title" id="page-title"></h4></center><br/>
+                                </div>
+                                
+                                <div class="places-buttons">
+                                    <div class="row">
+                                        <div class="col-md-offset-1 col-md-2 ">
+                                            <button class="btn btn-primary btn-block" onclick="demo.showNotification('bottom','left')">Create</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="content all-icons">
-                                <div class="row">
-                                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                                    <div class="font-icon-detail"><i class="pe-7s-album"></i>
-                                      <input type="text" value="pe-7s-album">
-                                    </div>
+                            <div class="row">
+                                <div class="content all-product">
+                                    
+                                      <div id='page-content'></div>
 
-                                  </div>
-                                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                                    <div class="font-icon-detail"><i class="pe-7s-arc"></i>
-                                      <input type="text" value="pe-7s-arc">
-                                    </div>
-
-                                  </div>
-                                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                                    <div class="font-icon-detail"><i class="pe-7s-back-2"></i>
-                                      <input type="text" value="pe-7s-back-2">
-                                    </div>
-
-                                  </div>
-                                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                                    <div class="font-icon-detail"><i class="pe-7s-bandaid"></i>
-                                      <input type="text" value="pe-7s-bandaid">
-                                    </div>
-
-                                  </div>
+                                      <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="thumbnail">
+                                            <img src="assets/gallery/tora_tiramisu.jpg" alt="" width="100%" />
+                                            <div class="caption">
+                                                <p><strong>Name: </strong>Tora Tiramisu<br/><strong>Price: </strong>140.000</p>
+                                            </div>
+                                        </div>
+                                      </div>
+                                      
                                 </div>
                             </div>
                         </div>
@@ -117,12 +107,12 @@
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
 
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
     <!-- Light Bootstrap Table Core javascript -->
     <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
     <!-- Light Bootstrap Table main -->
     <!-- <script src="assets/js/admin-main.js"></script> -->
+
+    <!-- app js script -->
+    <script src="app/app.js"></script>
 </html>
