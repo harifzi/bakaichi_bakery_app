@@ -9,12 +9,12 @@
         <!-- google font -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,600,600i,700,700i" rel="stylesheet">
         <!-- google font -->
-        <link rel="shortcut icon" href="assets/images/icon.png">
+        <link rel="shortcut icon" href="../assets/images/icon.png">
         <!-- Place favicon.ico in the root directory -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <!-- Login style -->
-         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/admin-signin.css">
+         <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/admin-signin.css">
         <!-- Login style -->
         <!--[if IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -30,7 +30,7 @@
         	<div class="login-pan">
 
         		<div class="login-box-pan">
-                     <div class="logopan"><a href="index.php"><img src="assets/images/logo-hed-1.png"></a></div>
+                     <div class="logopan"><a href="index.php"><img src="../assets/images/logo-hed-1.png"></a></div>
         			<div class="login-box">
         				<h3>Sign In</h3>
         				<form>
@@ -52,10 +52,10 @@
     </div>
 
     <!-- script -->
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/js/icheck.min.js" type="text/javascript"></script>
-    <script src="assets/js/admin-signin-main.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/js/icheck.min.js" type="text/javascript"></script>
+    <script src="../assets/js/admin-signin-main.js" type="text/javascript"></script>
       
     </body>
 </html>
