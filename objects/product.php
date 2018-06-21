@@ -7,10 +7,12 @@ class Product{
 
     // object properties
     public $kue_id;
-    public $jenis_kue_id;
     public $nama_kue;
     public $harga_kue;
+    public $gambar_kue;
     public $deskripsi_kue;
+    public $jenis_kue_id;
+    public $jenis_kue;
 
     // constructor with $db as database connection
     public function __construct($db){
@@ -58,10 +60,10 @@ class Product{
 
         // select all query
         $query = "SELECT
-                    kue_id, jenis_kue_id, nama_kue, harga_kue, deskripsi_kue
+                    kue.kue_id, kue.gambar_kue, kue.nama_kue, kue.harga_kue, jenis_kue.jenis_kue, kue.deskripsi_kue
                 FROM
                     " . $this->table_name . "
-                ORDER BY
+                INNER JOIN jenis_kue ON kue.jenis_kue_id = jenis_kue.jenis_kue_id ORDER BY
                     kue_id DESC
                 LIMIT
                     ?, ?";

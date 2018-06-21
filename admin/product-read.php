@@ -26,7 +26,7 @@ if($num > 0)
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
              
-            echo '<div class="col-md-3 col-sm-6 col-xs-12"><div class="thumbnail"><img src="../assets/gallery/tora_tiramisu.jpg" alt="" width="100%" /><div class="caption"><p><strong>Nama: </strong>'."{$nama_kue}".'<br/><strong>Harga: </strong>'."{$harga_kue}".'</p></div></div></div>';
+            echo '<div class="col-md-3 col-sm-6 col-xs-12"><div class="thumbnail"><img src="../'."{$gambar_kue}".'" alt="" width="100%" /><div class="caption"><p><strong>Nama: </strong>'."{$nama_kue}".'<br/><strong>Harga: </strong>'."{$harga_kue}".'<br/><strong>Jenis: </strong>'."{$jenis_kue}".'<br/><br/><strong>Deskripsi: </strong>'."{$deskripsi_kue}".'</p></div></div></div>';
         }         
 }
  
