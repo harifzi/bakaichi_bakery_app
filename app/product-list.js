@@ -1,26 +1,38 @@
-// change page title
-function changePageTitle(page_title){
-    // change page title
-    $('#page-title').text(page_title);
-
-    // change title tag
-    document.title=page_title;
-}
-
 showProducts(1);
-changePageTitle('Read Products');
 
-
+// SHOW PRODUCT
 function showProducts(page){
  
-    // change page title
-    changePageTitle('Read Products');
+    $('#page-title').html('Read Products');
+    $('#page-title').append('&nbsp; <button type="button" class="btn btn btn-info btn-fill" id="create-product">Create</button></div>');
     
     $('#page-content').fadeOut('slow', function(){
         $('#page-content').load('product-read.php?page=' + page, function(){
            
             $('#page-content').fadeIn('slow');
 
+        });
+
+        // FORM: CREATE PRODUCT
+        $('#create-product').click(function(){
+            $('#page-title').html('Create Products');
+            
+            $('#page-content').fadeOut('slow', function(){
+                $('#page-content').load('product-create-form.php', function(){
+
+                    $('#page-content').fadeIn('slow');
+
+                    // BACK
+                    $('#back-button').click(function(){
+                       
+                        $('#page-content').fadeOut('slow', function(){ 
+                            showProducts(1);
+                        });
+                       
+                    });
+                
+                });
+            });
         });
 
         // $.ajax({ 
@@ -39,6 +51,5 @@ function showProducts(page){
         //     }
         // });
      
-    });    
-    
+    });
 }

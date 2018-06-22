@@ -23,7 +23,7 @@ class JenisKue{
 
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
-
+        
         return $stmt;
     }
 }    

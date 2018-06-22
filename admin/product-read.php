@@ -46,11 +46,6 @@ if($record_num > 0)
 
     // Pagination
 
-        echo '<div class="row"><div class="col-md-4">';
-        echo '<button type="button" class="btn btn btn-info btn-fill">';
-        echo 'Create</button>';
-        echo '</div></div>';
-
         echo '<center><ul class="pagination pagination">';
        
         // previous pages
@@ -101,9 +96,5 @@ else
 {
     echo "<div class='alert alert-danger'>No records found.</div>";
     echo '<br/><br/><br/><br/><br/><br/>';
-    echo '<div class="row"><div class="col-md-4">';
-    echo '<button type="button" class="btn btn btn-info btn-fill">';
-    echo 'Create</button>';
-    echo '</div></div>';
 }
 ?>
