@@ -1,5 +1,5 @@
 <?php
-class Product{
+class Kue{
 
     // database connection and table name
     private $conn;
@@ -12,7 +12,6 @@ class Product{
     public $gambar_kue;
     public $deskripsi_kue;
     public $jenis_kue_id;
-    public $jenis_kue;
 
     // constructor with $db as database connection
     public function __construct($db){
@@ -26,7 +25,7 @@ class Product{
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    name=:name, price=:price, description=:description, created=:created";
+                    nama_kue=:nama_kue, harga_kue=:harga_kue, gambar_kue=:gambar_kue, jenis_kue_id=:jenis_kue_id, deskripsi_kue=:deskripsi_kue";
 
         // prepare query
         $stmt = $this->conn->prepare($query);

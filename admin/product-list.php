@@ -6,6 +6,16 @@
     //     header('Location:signin.php');
     //     exit();
     // }
+
+
+    include_once '../config/database.php';
+    include_once '../objects/jenis-kue.php';
+
+    $database = new Database();
+    $db = $database->getConnection();
+
+    $jenis_kue = new JenisKue($db);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,11 +41,11 @@
 
     <!--     Fonts and icons     -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
     <style type="text/css">
-    .display-none{
+    .display-none {
         display:none;
     }
     </style>
@@ -56,30 +66,190 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                   
-                    <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-12">
                         <div class="card">
-                            
-                            <div class="row">
-                                <div class="header">
-                                    <center><h4 class="title" id="page-title"></h4></center><br/>
-                                </div>
-                                
-                                <div class="places-buttons">
-                                    <div class="col-md-offset-1 col-md-2 ">
-                                        <button class="btn btn-primary btn-block" id="create-product">Create</button>
-                                    </div>
-                                </div>
+                            <div class="header">
+                                <h4 class="title" id="page-title">Edit Profile</h4>
                             </div>
+                            
+                            <div class="content">    
+                                
+                                <!-- Create: Product -->
+                                <form id='create-product-form' action='#' method='post' border='0'>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label>Nama Kue</label>
+                                                        <input type="text" class="form-control" placeholder="Company" value="Creative Code Inc.">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Harga</label>
+                                                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Jenis Kue</label>
+                                                       
+                                                        <?php
+                                                        // Jenis Kue
+                                                        $stmt = $jenis_kue->read();
 
-                            <div class="row">
-                                <div class="content all-product">
-                                    <div id='page-content'></div>                            
-                                </div>
+                                                        echo "<select class='form-control' name='category_id'>";
+                                                            echo "<option>Jenis Kue...</option>";
+
+                                                            while ($row_jenis_kue = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                                                extract($row_jenis_kue);
+                                                                echo "<option value='{$jenis_kue_id}'>{$jenis_kue}</option>";
+                                                            }
+
+                                                        echo "</select>";
+                                                        ?>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Deskripsi Kue</label>
+                                                        <textarea rows="5" class="form-control" placeholder="Here can be your description">Ya itu rasanya enak sekaly</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Gambar Kue</label>
+                                                    <img src="../assets/images/470x470.png" id="preview-frame" style="max-width:300px;max-height:300px;float:left;" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="image" value="media" style="display: none;" required/> </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-offset-10 col-md-2">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <button class="btn btn-danger btn-fill btn-file">&lt;</button>
+                                            <button class="btn btn-info btn-fill btn-file">Create</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <br/><hr/><br/>
+
+                                <!-- Read: Product -->
+                                <div id="page-content"></div>
+                                
+                                <br/><hr/><br/>
+
+                                <!-- Form: Create -->
+                                <form id='create-product-form' action='#' method='post' border='0'>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label>Nama Kue</label>
+                                                        <input type="text" class="form-control" placeholder="Company" value="Creative Code Inc.">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Harga</label>
+                                                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Jenis Kue</label>
+                                                       
+                                                        <?php
+                                                        // Jenis Kue
+                                                        $stmt = $jenis_kue->read();
+
+                                                        echo "<select class='form-control' name='category_id'>";
+                                                            echo "<option>Jenis Kue...</option>";
+
+                                                            while ($row_jenis_kue = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                                                extract($row_jenis_kue);
+                                                                echo "<option value='{$jenis_kue_id}'>{$jenis_kue}</option>";
+                                                            }
+
+                                                        echo "</select>";
+                                                        ?>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Deskripsi Kue</label>
+                                                        <textarea rows="5" class="form-control" placeholder="Here can be your description">Ya itu rasanya enak sekaly</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Gambar Kue</label>
+                                                    <img src="../assets/images/470x470.png" id="preview-frame" style="max-width:300px;max-height:300px;float:left;" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="image" value="media" style="display: none;" required/> </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-offset-10 col-md-2">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <button class="btn btn-danger btn-fill btn-file">&lt;</button>
+                                            <button class="btn btn-info btn-fill btn-file">Create</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -110,5 +280,27 @@
     <!-- <script src="assets/js/admin-main.js"></script> -->
 
     <!-- app js script -->
-    <script src="../app/product.js"></script>
+    <script src="../app/product-list.js"></script>
+
+    <script type="text/javascript">
+
+    function readURL(input){
+      if (input.files && input.files[0]){
+        var reader = new FileReader();
+
+        reader.onload = function (e){
+            $('#preview-frame').attr('src',e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    };
+
+    $("#picframe").change(function(){
+        $('#preview-frame').attr('src','http://via.placeholder.com/350x350');    
+        readURL(this);
+    });
+
+    </script>
+
 </html>
