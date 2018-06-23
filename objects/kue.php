@@ -7,54 +7,57 @@ class Kue{
 
     // object properties
     public $kue_id;
+    public $jenis_kue_id;
     public $nama_kue;
     public $harga_kue;
     public $gambar_kue;
     public $deskripsi_kue;
-    public $jenis_kue_id;
-
+    
     // constructor with $db as database connection
     public function __construct($db){
         $this->conn = $db;
     }
 
-    // create product
+    // Create
     function create(){
 
-        // query to insert record
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    nama_kue=:nama_kue, harga_kue=:harga_kue, gambar_kue=:gambar_kue, jenis_kue_id=:jenis_kue_id, deskripsi_kue=:deskripsi_kue";
+                    jenis_kue_id=:jenis_kue_id, nama_kue=:nama_kue, harga_kue=:harga_kue, gambar_kue=:gambar_kue, deskripsi_kue=:deskripsi_kue";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // posted values
-        $this->name=htmlspecialchars(strip_tags($this->name));
-        $this->price=htmlspecialchars(strip_tags($this->price));
-        $this->description=htmlspecialchars(strip_tags($this->description));
-        $this->created=htmlspecialchars(strip_tags($this->created));
+        $this->jenis_kue_id=htmlspecialchars(strip_tags($this->jenis_kue_id));
+        $this->nama_kue=htmlspecialchars(strip_tags($this->nama_kue));
+        $this->harga_kue=htmlspecialchars(strip_tags($this->harga_kue));
+        $this->gambar_kue=htmlspecialchars(strip_tags($this->gambar_kue));
+        $this->deskripsi_kue=htmlspecialchars(strip_tags($this->deskripsi_kue));
 
         // bind values
-        $stmt->bindParam(":name", $this->name);
-        $stmt->bindParam(":price", $this->price);
-        $stmt->bindParam(":description", $this->description);
-        $stmt->bindParam(":created", $this->created);
-
+        $stmt->bindParam(":jenis_kue_id", $this->jenis_kue_id);
+        $stmt->bindParam(":nama_kue", $this->nama_kue);
+        $stmt->bindParam(":harga_kue", $this->harga_kue);
+        $stmt->bindParam(":gambar_kue", $this->gambar_kue);
+        $stmt->bindParam(":deskripsi_kue", $this->deskripsi_kue);
+        
         // execute query
         if($stmt->execute())
         {
+            echo 'true';
             return true;
         }
         
         else
         {
+            echo 'false';
             return false;
         }
     }
 
-    // read products
+    // Read
     public function readAll($from_record_num, $records_per_page){
 
         // select all query

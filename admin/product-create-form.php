@@ -11,20 +11,20 @@ $jenis_kue = new JenisKue($db);
 ?>
 
 <!-- Create: Product -->
-<form id='create-product-form' action='#' method='post' border='0'>
+<form id='create-product' action='#' method='post' border='0'>
     <div class="row">
         <div class="col-md-8">
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Nama Kue</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Creative Code Inc.">
+                        <input type="text" class="form-control" placeholder="Nama Kue" name="nama_kue">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Harga</label>
-                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                        <input type="text" class="form-control" placeholder="Harga Kue" name="harga">
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@ $jenis_kue = new JenisKue($db);
                         // Jenis Kue
                         $stmt = $jenis_kue->read();
 
-                        echo "<select class='form-control' name='category_id'>";
+                        echo "<select class='form-control' name='jenis'>";
                             echo "<option>Jenis Kue...</option>";
 
                             while ($row_jenis_kue = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -55,7 +55,7 @@ $jenis_kue = new JenisKue($db);
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Deskripsi Kue</label>
-                        <textarea rows="5" class="form-control" placeholder="Here can be your description">Ya itu rasanya enak sekaly</textarea>
+                        <textarea rows="5" class="form-control" placeholder="Deskripsi Kue" name="deskripsi"></textarea>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@ $jenis_kue = new JenisKue($db);
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="image" value="media" style="display: none;"/> </label>
+                    <!-- <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="image" value="media" style="display: none;"/> </label> -->
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@ $jenis_kue = new JenisKue($db);
     <div class="row">
         <div class="col-md-2">
             <button type="button" class="btn btn-danger btn-fill btn-file" id="back-button">&lt;</button>
-            <button type="button" class="btn btn-info btn-fill btn-file">Create</button>
+            <input type="submit" class="btn btn-info btn-fill btn-file" value="Create" />
         </div>
     </div>
 </form>

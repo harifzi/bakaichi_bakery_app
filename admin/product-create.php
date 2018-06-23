@@ -1,24 +1,21 @@
 <?php
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/product.php';
+include_once '../objects/kue.php';
  
 // instantiate database class
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$product = new Product($db);
+$kue = new Kue($db);
  
 // set values
-$product->name=$_POST['name'];
-$product->description=$_POST['description'];
-$product->price=$_POST['price'];
- 
-// set your default timezone
-date_default_timezone_set('Asia/Manila');
-$product->created = date('Y-m-d H:i:s');
-         
-// create product
-$product->create();
+$kue->nama_kue=$_POST['nama_kue'];
+$kue->harga_kue=$_POST['harga'];
+$kue->jenis_kue_id=$_POST['jenis'];
+$kue->gambar_kue='assets/images/lala.jpg';
+$kue->deskripsi_kue=$_POST['deskripsi'];
+
+$kue->create();
 ?>
