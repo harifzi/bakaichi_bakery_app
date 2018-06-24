@@ -37,15 +37,15 @@ $jenis_kue = new JenisKue($db);
                         // Jenis Kue
                         $stmt = $jenis_kue->read();
 
-                        echo "<select class='form-control' name='jenis'>";
-                            echo "<option>Jenis Kue...</option>";
+                        echo '<select class="form-control" name="jenis" id="jenis">';
+                            echo '<option value="null">Jenis Kue...</option>';
 
                             while ($row_jenis_kue = $stmt->fetch(PDO::FETCH_ASSOC)){
                                 extract($row_jenis_kue);
-                                echo "<option value='{$jenis_kue_id}'>{$jenis_kue}</option>";
+                                echo '<option value="'."{$jenis_kue_id}".'">'."{$jenis_kue}".'</option>';
                             }
 
-                        echo "</select>";
+                        echo '</select>';
                         ?>
                     
                     </div>
@@ -92,3 +92,13 @@ $jenis_kue = new JenisKue($db);
         </div>
     </div>
 </form>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('form #jenis').change(function(){
+           $('#jenis option[value="null"]').remove();
+        });
+    });
+
+</script>

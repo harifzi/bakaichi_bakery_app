@@ -57,7 +57,7 @@ class Kue{
         }
     }
 
-    // Read
+    // Read All Product
     public function readAll($from_record_num, $records_per_page){
 
         // select all query
@@ -83,35 +83,30 @@ class Kue{
         return $stmt;
     }
 
-    // used when filling up the update product form
+    // Read One Product
     function readOne(){
 
-        // query to read single record
         $query = "SELECT
-                    name, price, description
+                    nama_kue, jenis_kue_id, gambar_kue, harga_kue, deskripsi_kue
                 FROM
                     " . $this->table_name . "
                 WHERE
-                    id = ?
+                    kue_id = ?
                 LIMIT
                     0,1";
 
-        // prepare query statement
         $stmt = $this->conn->prepare( $query );
+        $stmt->bindParam(1, $this->kue_id);
 
-        // bind id of product to be updated
-        $stmt->bindParam(1, $this->id);
-
-        // execute query
         $stmt->execute();
 
-        // get retrieved row
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // set values to object properties
-        $this->name = $row['name'];
-        $this->price = $row['price'];
-        $this->description = $row['description'];
+        $this->nama_kue = $row['nama_kue'];
+        $this->gambar_kue = $row['gambar_kue'];
+        $this->jenis_kue_id = $row['jenis_kue_id'];
+        $this->harga_kue = $row['harga_kue'];
+        $this->deskripsi_kue = $row['deskripsi_kue'];
     }
 
     // update the product
@@ -149,22 +144,20 @@ class Kue{
         }
     }
 
-    // delete the product
+    // Delete
     function delete(){
 
-        // delete query
-        $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
-
-        // prepare query
+        $query = "DELETE FROM " . $this->table_name . " WHERE kue_id = ?";
         $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->kue_id);
 
-        // bind id of record to delete
-        $stmt->bindParam(1, $this->id);
-
-        // execute query
-        if($stmt->execute()){
+        if($stmt->execute())
+        {
             return true;
-        }else{
+        }
+
+        else
+        {
             return false;
         }
     }

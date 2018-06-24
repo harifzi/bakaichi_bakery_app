@@ -13,17 +13,8 @@ function showProducts(page){
 
             $(document).ready(function(){
 
-                $('#edit-product').click(function(){
-
-                    console.log('hai');
-
-                });
-
-                $('#delete-product').click(function(){
-
-                    console.log('hai');
-
-                });
+                editProduct();
+                deleteProduct();
             
             });
 
@@ -97,7 +88,7 @@ function createProduct(){
 
                 });
                
-            // END OF CREATE BUTTON ==========================================
+                // END OF CREATE BUTTON ==========================================
             
             });
         });
@@ -119,6 +110,84 @@ function createProduct(){
     //     }
     // });
 
-    // END OF FORM:CREATE PRODUCT ================================================= 
+}
+
+// EDIT BUTTON
+function editProduct(){
+
+    $('button#edit-product').click(function(){
+
+        $('#page-title').html('Update Products');
+        
+        var product = $(this).parents('.product');
+        $product_id = product.attr('product');
+
+        $('#page-content').fadeOut('slow', function(){
+            $('#page-content').load('product-update-form.php?product_id='+$product_id, function(){
+
+                $('#page-content').fadeIn('slow');
+                
+                previousButton()  
+
+                // UPDATE BUTTON ===============================================
+
+                $('#create-product').submit(function(){
+
+                    event.preventDefault();
+                    var create_data = $(this).serialize();
+                    $.ajax({
+                        type: "POST",
+                        url: "product-update.php",
+                        data: create_data,
+                        dataType: "json",
+                        success: function(data) {
+                            $('#page-content').fadeOut('slow', function(){ 
+                                showProducts(1);
+                            });
+                        },
+                        error: function(exception) {
+                            console.log(exception);
+                        }
+                    });
+
+                });
+               
+                // END OF CREATE BUTTON ==========================================
+            
+            });
+        });
+
+    });
+
+
+
+}
+
+// DELETE BUTTON
+function deleteProduct(){
+
+    $('button#delete-product').click(function(){
+
+        var product = $(this).parents('.product');
+        $product_id = product.attr('product');
+
+        event.preventDefault();
+        $.ajax({
+            type : "POST",
+            url : "product-delete.php",
+            data : 'id='+$product_id,  
+            dataType : "json",
+            success : function(data){
+                $('#page-content').fadeOut('slow', function(){ 
+                    showProducts(1);
+                });
+            },
+            error: function(exception) {
+                console.log(exception);
+            }
+        });
+
+
+    });
 
 }

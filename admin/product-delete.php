@@ -1,15 +1,12 @@
 <?php
-// include database and object files
 include_once '../config/database.php';
-include_once '../objects/product.php';
+include_once '../objects/kue.php';
  
-// instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
+
+$kue = new Kue($db);
  
-// initialize object
-$product = new Product($db);
- 
-$product->id=$_POST['id'];
-$product->delete();
+$kue->kue_id=$_POST['id'];
+$kue->delete();
 ?>
