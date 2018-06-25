@@ -64,9 +64,10 @@ function createProduct(){
                         data: create_data,
                         dataType: "json",
                         success: function(data) {
-                            $('#page-content').fadeOut('slow', function(){ 
-                                showProducts(1);
-                            });
+                            console.log(data);
+                            // $('#page-content').fadeOut('slow', function(){ 
+                            //     showProducts(1);
+                            // });
                         },
                         error: function(exception) {
                             console.log(exception);

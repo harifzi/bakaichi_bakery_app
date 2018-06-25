@@ -113,25 +113,4 @@
     <!-- app js script -->
     <script src="../app/product-list.js"></script>
 
-    <script type="text/javascript">
-
-    function readURL(input){
-      if (input.files && input.files[0]){
-        var reader = new FileReader();
-
-        reader.onload = function (e){
-            $('#preview-frame').attr('src',e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-      }
-    };
-
-    $("#picframe").change(function(){
-        $('#preview-frame').attr('src','http://via.placeholder.com/350x350');    
-        readURL(this);
-    });
-
-    </script>
-
 </html>
