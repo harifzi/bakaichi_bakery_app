@@ -11,7 +11,7 @@ $jenis_kue = new JenisKue($db);
 ?>
 
 <!-- Create: Product -->
-<form id='create-product' action='#' method='post' border='0'>
+<form id='create-product' enctype="multipart/form-data" method='post' border='0'>
     <div class="row">
         <div class="col-md-8">
             <div class="row">
@@ -69,31 +69,37 @@ $jenis_kue = new JenisKue($db);
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <!-- <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="image" value="media" style="display: none;"/> </label> -->
+                    <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="gambar" style="display: none;"/> </label>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            
-        </div>
-        
-    </div>
-    <div class="row">
-        <div class="col-md-offset-10 col-md-2">
-            
-        </div>
-    </div>
-    <div class="row">
         <div class="col-md-2">
             <button type="button" class="btn btn-danger btn-fill btn-file" id="back-button">&lt;</button>
-            <input type="submit" class="btn btn-info btn-fill btn-file" value="Create" />
+            <input type="submit" class="btn btn-info btn-fill btn-file" name="create_product" value="Create" />
         </div>
     </div>
 </form>
 
 <script type="text/javascript">
+
+   function readURL(input){
+      if (input.files && input.files[0]){
+        var reader = new FileReader();
+
+        reader.onload = function (e){
+            $('#preview-frame').attr('src',e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    };
+
+    $("#picframe").change(function(){
+        $('#preview-frame').attr('src','../assets/images/470x470.png');    
+        readURL(this);
+    });
 
     $(document).ready(function(){
         $('form #jenis').change(function(){

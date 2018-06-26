@@ -31,11 +31,11 @@ if($record_num > 0)
             echo '<div class="col-md-4 product" product='."{$kue_id}".'><div class="card">';
             if ($deskripsi_kue == NULL)
             {
-                echo '<div class="image"><img src="../'."{$gambar_kue}".'" alt=""/></div><div class="content"><h4 class="title">'."{$nama_kue}".'<small> '."{$jenis_kue}".' </small><br/> '."{$harga_kue}".' IDR </h4><br/> <p class="description"> Tidak ada deskripsi </p></div>';
+                echo '<div class="image"><img src="'."{$gambar_kue}".'" alt=""/></div><div class="content"><h4 class="title">'."{$nama_kue}".'<small> '."{$jenis_kue}".' </small><br/> '."{$harga_kue}".' IDR </h4><br/> <p class="description"> Tidak ada deskripsi </p></div>';
             }
             else
             {
-                echo '<div class="image"><img src="../'."{$gambar_kue}".'" alt=""/></div><div class="content"><h4 class="title">'."{$nama_kue}".'<small> '."{$jenis_kue}".' </small><br/> '."{$harga_kue}".' IDR </h4><br/> <p class="description"> '."{$deskripsi_kue}".' </p></div>';
+                echo '<div class="image"><img src="'."{$gambar_kue}".'" alt=""/></div><div class="content"><h4 class="title">'."{$nama_kue}".'<small> '."{$jenis_kue}".' </small><br/> '."{$harga_kue}".' IDR </h4><br/> <p class="description"> '."{$deskripsi_kue}".' </p></div>';
             }
             echo '<hr/>';
             echo '<div class="text-center"><button type="button" class="btn btn-info btn-fill" id="edit-product"><i class="fa fa-edit"></i></button> &nbsp; <button type="button" class="btn btn-danger btn-fill" id="delete-product"><i class="fa fa-trash"></i></label></button></div>';

@@ -43,18 +43,15 @@ class Kue{
         $stmt->bindParam(":gambar_kue", $this->gambar_kue);
         $stmt->bindParam(":deskripsi_kue", $this->deskripsi_kue);
         
-        // execute query
         if($stmt->execute())
         {
-            echo 'true';
             return true;
         }
-        
         else
         {
-            echo 'false';
             return false;
         }
+        
     }
 
     // Read All Product
@@ -147,19 +144,27 @@ class Kue{
     // Delete
     function delete(){
 
-        $query = "DELETE FROM " . $this->table_name . " WHERE kue_id = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $this->kue_id);
-
-        if($stmt->execute())
+        if(unlink($this->gambar))
         {
-            return true;
+            $query = "DELETE FROM " . $this->table_name . " WHERE kue_id = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1, $this->kue_id);
+            
+            if($stmt->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            } 
         }
-
+   
         else
         {
             return false;
         }
+        
     }
     
     // used for paging products

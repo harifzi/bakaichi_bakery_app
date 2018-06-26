@@ -74,8 +74,7 @@
                             
                             <div class="content">    
                                 
-                                <div id="page-content"></div>
-                                
+                                <div id="page-content"></div>                                
                                 <br/><hr/><br/>
 
                             </div>

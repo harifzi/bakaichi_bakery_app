@@ -8,5 +8,6 @@ $db = $database->getConnection();
 $kue = new Kue($db);
  
 $kue->kue_id=$_POST['id'];
+$kue->gambar=$_POST['gambar'];
 $kue->delete();
 ?>

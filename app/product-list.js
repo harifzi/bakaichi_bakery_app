@@ -56,21 +56,26 @@ function createProduct(){
 
                 $('#create-product').submit(function(){
 
-                    event.preventDefault();
-                    var create_data = $(this).serialize();
+                    var createData = new FormData(this);
                     $.ajax({
                         type: "POST",
                         url: "product-create.php",
-                        data: create_data,
+                        data: createData,
                         dataType: "json",
+                        cache:false,
+                        contentType: false,
+                        processData: false,
                         success: function(data) {
-                            console.log(data);
-                            // $('#page-content').fadeOut('slow', function(){ 
-                            //     showProducts(1);
-                            // });
+                            // console.log(data);
+                            $('#page-content').fadeOut('slow', function(){ 
+                                showProducts(1);
+                            });
                         },
                         error: function(exception) {
-                            console.log(exception);
+                            $('#page-content').fadeOut('slow', function(){ 
+                                showProducts(1);
+                                console.log('error');
+                            });
                         }
                     });
 
@@ -160,8 +165,6 @@ function editProduct(){
 
     });
 
-
-
 }
 
 // DELETE BUTTON
@@ -171,23 +174,28 @@ function deleteProduct(){
 
         var product = $(this).parents('.product');
         $product_id = product.attr('product');
+        $pic_src = product.find('img').attr('src');
+        // console.log($pic_src);
 
-        event.preventDefault();
+        var deleteproduct = {'gambar':$pic_src,'id':$product_id};
+
         $.ajax({
             type : "POST",
             url : "product-delete.php",
-            data : 'id='+$product_id,  
-            dataType : "json",
+            data : deleteproduct,  
             success : function(data){
                 $('#page-content').fadeOut('slow', function(){ 
                     showProducts(1);
+                    // console.log(data);
                 });
             },
             error: function(exception) {
-                console.log(exception);
+                $('#page-content').fadeOut('slow', function(){ 
+                    showProducts(1);
+                    console.log('error');
+                });
             }
         });
-
 
     });
 
