@@ -25,7 +25,6 @@
 
         <!--Theme custom css -->
         <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/signin.css">
 
         <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />

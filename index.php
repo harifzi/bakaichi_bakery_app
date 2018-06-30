@@ -25,12 +25,12 @@
 
         <!--Theme custom css -->
         <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/home.css">
 
         <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
 
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -195,7 +195,7 @@
 		</section>
 		<!-- End of Client Said -->
 
-		<section id="newproducts_section" class="newproducts">
+		<section id="newproducts_section" class="products">
             <div class="container">
                 <div class="row">	
 					<div class="col-md-offset-6 col-sm-offset-6 col-md-6 col-sm-6 col-xs-12">
@@ -208,18 +208,18 @@
                 </div>
             </div>
 			
-			<div class="main_newproducts_content text-center">
+			<div class="main_products_content text-center">
 				<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s">
 					<div class="single_product">
 						<img src="assets/gallery/tora_tiramisu.jpg" alt="" />
-						<p>Tora Tiramisu<br/>Price: RP 140.000<br/></p>
+						<div class="product_detail">Tora Tiramisu<br/>Price: RP 140.000<br/></div>
 					</div>
 				</div>
 
 				<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s">
 					<div class="single_product">
 						<img src="assets/gallery/rocky_cookie_mini.jpg" alt="" />
-						<p>Rocky Cookie Mini<br/>Price: RP 70.000<br/></p>
+						<div class="product_detail">Rocky Cookie Mini<br/>Price: RP 70.000<br/></div>
 					</div>
 				</div>
 				
