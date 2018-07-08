@@ -1,14 +1,12 @@
 <?php
 class Database{
      
-    // database credentials
     private $host = "localhost";
     private $db_name = "bakaichi_bakery_app";
     private $username = "root";
     private $password = "";
     public $conn;
      
-    // get the database connection
     public function getConnection(){
      
         $this->conn = null;

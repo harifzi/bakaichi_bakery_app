@@ -31,7 +31,9 @@ $kue->readOne();
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Nama Kue</label>
-                        <input type="hidden" name="kue_id"/>
+                        <input type="hidden" name="kue_id" value="<?php echo $product_id;?>" />
+                        <input type="hidden" name="oldpic" value="<?php echo htmlspecialchars($kue->gambar_kue, ENT_QUOTES); ?>"/>
+                        <input type="hidden" name="update_control" value="0"/>
                         <input type="text" class="form-control" placeholder="Nama Kue" name="nama_kue" value="<?php echo htmlspecialchars($kue->nama_kue, ENT_QUOTES); ?>"/>
                     </div>
                 </div>
@@ -83,31 +85,39 @@ $kue->readOne();
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <!-- <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="image" value="media" style="display: none;"/> </label> -->
+                    <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="gambar" value="media" style="display: none;"/> </label>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            
-        </div>
-        
-    </div>
-    <div class="row">
-        <div class="col-md-offset-10 col-md-2">
-            
-        </div>
-    </div>
-    <div class="row">
         <div class="col-md-2">
             <button type="button" class="btn btn-danger btn-fill btn-file" id="back-button">&lt;</button>
-            <input type="submit" class="btn btn-info btn-fill btn-file" value="Create" />
+            <input type="submit" class="btn btn-info btn-fill btn-file" value="Update" />
         </div>
     </div>
 </form>
 
 <script type="text/javascript">
+
+    function readURL(input){
+        if (input.files && input.files[0]){
+            var reader = new FileReader();
+
+            reader.onload = function (e){
+                $('#preview-frame').attr('src',e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    };
+
+    $("#picframe").change(function(){
+        $('#preview-frame').attr('src','../assets/images/470x470.png');    
+        readURL(this);
+        $('input [name="update_control"]').val(1);
+    });
+
     $(document).ready(function(){
 
         $jenis_value = <?php echo htmlspecialchars($kue->jenis_kue_id, ENT_QUOTES); ?>;

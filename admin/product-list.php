@@ -69,12 +69,13 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title" id="page-title">Edit Profile</h4>
+                                <h4 class="title" id="page-title"></h4>
                             </div>
                             
                             <div class="content">    
                                 
-                                <div id="page-content"></div>                                
+                                <div id="page-content"></div>
+                                <div id="form"></div>                                
                                 <br/><hr/><br/>
 
                             </div>
@@ -109,7 +110,6 @@
     <!-- Light Bootstrap Table main -->
     <!-- <script src="assets/js/admin-main.js"></script> -->
 
-    <!-- app js script -->
     <script src="../app/product-list.js"></script>
 
 </html>

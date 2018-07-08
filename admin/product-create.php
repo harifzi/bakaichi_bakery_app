@@ -30,6 +30,7 @@ if (isset($_FILES['gambar'])) {
                 $pic_name_new     =  $pic_fname . uniqid('',true) . '.' . $pic_ext;
                 $pic_name_new    =  uniqid('',true) . '.' . $pic_ext;
                 $pic_destination =  '../assets/gallery/' . $pic_name_new;
+                $pic_name_destination = 'assets/gallery/' . $pic_name_new;
                 
                 if (move_uploaded_file($pic_tmp, $pic_destination)) {
                     // Success
@@ -37,7 +38,7 @@ if (isset($_FILES['gambar'])) {
                     $kue->harga_kue=$_POST['harga'];
                     $kue->jenis_kue_id=$_POST['jenis'];
                     $kue->deskripsi_kue=$_POST['deskripsi'];
-                    $kue->gambar_kue=$pic_destination;
+                    $kue->gambar_kue=$pic_name_destination;
                     $kue->create();
                 }
                 else
