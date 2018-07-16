@@ -11,12 +11,14 @@ class Kue{
     public $gambar_kue;
     public $deskripsi_kue;
     
-    public function __construct($db){
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
     // Create
-    function create(){
+    public function create()
+    {
 
         $query = "INSERT INTO
                     " . $this->table_name . "
@@ -49,7 +51,8 @@ class Kue{
     }
 
     // Read All Product
-    public function readAll($from_record_num, $records_per_page){
+    public function readAll($from_record_num, $records_per_page)
+    {
 
         $query = "SELECT
                     kue.kue_id, kue.gambar_kue, kue.nama_kue, kue.harga_kue, jenis_kue.jenis_kue, kue.deskripsi_kue
@@ -71,7 +74,8 @@ class Kue{
     }
 
     // Read One Product
-    function readOne(){
+    public function readOne()
+    {
         $query = "SELECT
                     kue.kue_id, kue.gambar_kue, kue.nama_kue, kue.harga_kue, kue.jenis_kue_id,jenis_kue.jenis_kue, kue.deskripsi_kue
                 FROM
@@ -80,7 +84,7 @@ class Kue{
                     kue_id = ?
                 LIMIT
                     0,1";
-        $stmt = $this->conn->prepare( $query );
+        $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->kue_id);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -92,8 +96,9 @@ class Kue{
         $this->deskripsi_kue = $row['deskripsi_kue'];
     }
 
-    // update the product
-    function update(){
+    // Update
+    public function update()
+    {
 
         $query = "UPDATE
                     " . $this->table_name . "
@@ -110,6 +115,7 @@ class Kue{
         $this->gambar_kue=htmlspecialchars(strip_tags($this->gambar_kue));
         $this->deskripsi_kue=htmlspecialchars(strip_tags($this->deskripsi_kue));
 
+        $stmt->bindParam(":kue_id", $this->kue_id);
         $stmt->bindParam(":nama_kue", $this->nama_kue);
         $stmt->bindParam(":harga_kue", $this->harga_kue);
         $stmt->bindParam(":jenis_kue_id", $this->jenis_kue_id);
@@ -120,15 +126,17 @@ class Kue{
         {
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
     }
 
     // Delete
-    function delete(){
+    public function delete()
+    {
 
-        if(unlink($this->gambar))
+        if(unlink($this->gambar_kue))
         {
             $query = "DELETE FROM " . $this->table_name . " WHERE kue_id = ?";
             $stmt = $this->conn->prepare($query);
@@ -151,7 +159,8 @@ class Kue{
         
     }
     
-    public function countAll(){
+    public function countAll()
+    {
         $query = "SELECT COUNT(*) as total_rows FROM " . $this->table_name . "";
      
         $stmt = $this->conn->prepare( $query );

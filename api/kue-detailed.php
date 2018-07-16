@@ -9,8 +9,8 @@ else
     die('ERROR: Product ID not found.');
 }
 
-include_once 'config/database.php';
-include_once 'objects/kue.php';
+include_once '../config/database.php';
+include_once '../objects/kue.php';
 
 $database = new Database();
 $db = $database->getConnection();

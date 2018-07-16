@@ -52,9 +52,9 @@
 					</div>
                     
                     <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="2s">
-						<form action="#" id="formid">
+						<form action="#" id="form_signin">
 							<div class="form-group">
-								<input type="text" class="form-control" name="username" placeholder="Username" required="">
+								<input type="text" class="form-control" name="username_or_email" placeholder="Username or Email" required="">
 							</div>
 							
 							<div class="form-group">
@@ -63,7 +63,7 @@
 
 							<div class="message_btn text-center">
 								<div class="btn_bg">
-									<a href="" class="btn">Sign in</a>
+									<a id="submit" class="btn">Sign in</a>
 								</div>
 							</div>
 							<br/><br/><p class="text-center"><small>Not registered? <a href="signup.php">Create an account</a></small></p><br/><br/><br/><p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>
@@ -85,6 +85,25 @@
             
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
+        <script type="text/javascript">
+        $('#submit').click(function(){
+            event.preventDefault();
+
+            var formData = $('#form_signin').serialize();
+            $.ajax({
+                type: "POST",
+                url: "signin-post.php",
+                data: formData,
+                dataType: "text",
+                success: function(data){
+                    window.location = "index.php";
+                },
+                error: function(exception) {
+                    console.log(exception);
+                }
+            });
+        });
+        </script>
         
     </body>
 </html>

@@ -241,7 +241,7 @@
         <script type="text/javascript">				
 		$.ajax({ 
 		    type: 'GET', 
-		    url: 'coba.php', 
+		    url: 'api/kue.php', 
 		    data: { get_param: 'record_of_products' }, 
 		    dataType: 'json',
 		    success: function (data) { 

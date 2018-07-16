@@ -59,18 +59,18 @@
                     
                     <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="2s">
                         <div class="contact_message">
-                            <form action="#" id="formid">
+                            <form action="#" id="form_signup">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <label for="">First Name</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="first_name" placeholder="First Name" required="">
+                                        <input type="text" class="form-control" name="nama_depan" placeholder="First Name" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <label for="">Last Name</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name" required="">
+                                        <input type="text" class="form-control" name="nama_belakang" placeholder="Last Name" required="">
                                     </div>
                                 </div>
 
@@ -84,21 +84,21 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="">Address</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="address" placeholder="Address" required="">
+                                        <input type="text" class="form-control" name="alamat" placeholder="Address" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <label for="">Zip Code</label>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="zip_code" placeholder="Zip Code" required="">
+                                        <input type="number" class="form-control" name="kode_pos" placeholder="Zip Code" required="">
                                     </div>
                                 </div>
                                 
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <label for="">Fax Number</label>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="fax_number" placeholder="Fax Number" required="">
+                                        <input type="number" class="form-control" name="telepon" placeholder="Fax Number" required="">
                                     </div>
                                 </div>
 
@@ -127,7 +127,7 @@
 
                                 <div class="message_btn text-center">
                                     <div class="btn_bg">
-                                        <a href="" class="btn">Register</a>
+                                        <a id="submit" class="btn">Register</a>
                                     </div>
                                 </div><br/><br/><br/><br/><br/><br/>
                             </form>
@@ -135,8 +135,7 @@
                     </div>
 
                     <p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>
-
-                    
+         
                 </div>
                 
             </div>
@@ -159,5 +158,44 @@
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
         
+        <script type="text/javascript">
+        $('input[name="nama_depan"]').val("Amin");
+        $('input[name="nama_belakang"]').val("Gledek");
+        $('input[name="email"]').val("admincu@gmail.com");
+        $('input[name="username"]').val("admin");
+        $('input[name="alamat"]').val("Jl. Wonorejo 1 / 312");
+        $('input[name="kode_pos"]').val("66566");
+        $('input[name="telepon"]').val("089786675646");
+        $('input[name="username"]').val("admin");
+        $('input[name="password"]').val("admin123");
+        
+        $('#submit').click(function(){
+            event.preventDefault();
+
+            var formData = $('#form_signup').serialize();
+            $.ajax({
+                type: "POST",
+                url: "signup-post.php",
+                data: formData,
+                dataType: "text",
+                complete: function(xhr) {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 201) {
+                            // fine
+                        }
+                    } else {
+                        // error
+                    }
+                },
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(exception) {
+                    console.log(exception);
+                }
+            });
+        });
+        </script>
+
     </body>
 </html>

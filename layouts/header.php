@@ -28,7 +28,18 @@
                                     <li><a href="shop.php">Shop</a></li>
                                     <li><a href="contact.php">Contact</a></li>
                                     <li><a href="about.php">About Us</a></li>
-                                    <li><a href="signin.php">Sign In</a></li>
+                                    <?php
+                                    session_start();
+
+                                    if(isset($_SESSION['session_bakaichi_bakery']))
+                                    {
+                                        echo'<li><a href="myprofile">My Profile</a></li><li><a id="signout">Sign Out</a></li>';
+                                    }
+                                    else
+                                    {
+                                        echo '<li><a href="signin.php">Sign In</a></li>';    
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>

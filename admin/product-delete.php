@@ -7,7 +7,7 @@ $db = $database->getConnection();
 
 $kue = new Kue($db);
  
-$kue->kue_id=$_POST['id'];
-$kue->gambar=$_POST['gambar'];
+$kue->kue_id=$_POST['id_kue'];
+$kue->gambar_kue=$_POST['gambar_kue'];
 $kue->delete();
 ?>

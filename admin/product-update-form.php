@@ -24,16 +24,15 @@ $kue->readOne();
 ?>
 
 <!-- Create: Product -->
-<form id='create-product' action='#' method='post' border='0'>
+<form id="update-product" method="post" enctype="multipart/form-data" border='0'>
     <div class="row">
         <div class="col-md-8">
+            <input type="hidden" name="kue_id" value="<?php echo $product_id;?>" />
+            <input type="hidden" name="oldpic" value="<?php echo htmlspecialchars($kue->gambar_kue, ENT_QUOTES); ?>"/>
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Nama Kue</label>
-                        <input type="hidden" name="kue_id" value="<?php echo $product_id;?>" />
-                        <input type="hidden" name="oldpic" value="<?php echo htmlspecialchars($kue->gambar_kue, ENT_QUOTES); ?>"/>
-                        <input type="hidden" name="update_control" value="0"/>
                         <input type="text" class="form-control" placeholder="Nama Kue" name="nama_kue" value="<?php echo htmlspecialchars($kue->nama_kue, ENT_QUOTES); ?>"/>
                     </div>
                 </div>
@@ -85,7 +84,7 @@ $kue->readOne();
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="gambar" value="media" style="display: none;"/> </label>
+                    <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="gambar" style="display: none;"/> </label>
                 </div>
             </div>
         </div>
@@ -115,7 +114,6 @@ $kue->readOne();
     $("#picframe").change(function(){
         $('#preview-frame').attr('src','../assets/images/470x470.png');    
         readURL(this);
-        $('input [name="update_control"]').val(1);
     });
 
     $(document).ready(function(){

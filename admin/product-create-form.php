@@ -77,7 +77,7 @@ $jenis_kue = new JenisKue($db);
     <div class="row">
         <div class="col-md-2">
             <button type="button" class="btn btn-danger btn-fill btn-file" id="back-button">&lt;</button>
-            <input type="submit" class="btn btn-info btn-fill btn-file" name="create_product" value="Create" />
+            <input type="submit" class="btn btn-info btn-fill btn-file" value="Create" />
         </div>
     </div>
 </form>

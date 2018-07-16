@@ -50,7 +50,7 @@ if (isset($_FILES['gambar'])) {
             
             else
             {
-                echo "size must bne less then 5MB";
+                // file < 5MB
             }
         }
 
@@ -58,7 +58,7 @@ if (isset($_FILES['gambar'])) {
     
     else
     {
-        echo "File rejected";
+        // file rejected
     }
 }
 ?>
