@@ -6,10 +6,9 @@
         <title>Bakaichi Bakery</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable = no">
-        <!-- google font -->
-        <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,600,600i,700,700i" rel="stylesheet">
-        <!-- google font -->
         <link rel="shortcut icon" href="../assets/images/icon.png">
+        <!-- google font -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <!-- Login style -->
@@ -22,9 +21,9 @@
         <![endif]-->
 
     </head>
-    <body>
+    <body class="login-wrapper" style="background: #FAD000;">
    
-    <div  class=" login-wrapper" style="background: #FAD000;">
+    <div>
         <div class="container">
 
         	<div class="login-pan">
@@ -33,9 +32,9 @@
                      <div class="logopan"><a href="index.php"><img src="../assets/images/logo-hed-1.png"></a></div>
         			<div class="login-box">
         				<h3>Sign In</h3>
-        				<form>
-        					<input type="text" placeholder="Username" class="form-control"></input>
-        					<input type="password" placeholder="Password" class="form-control"></input>
+        				<form id="form_signin">
+        					<input type="text" name="username_or_email" placeholder="Username or Email" class="form-control"></input>
+        					<input type="password" name="password" placeholder="Password" class="form-control"></input>
                             <div class="check-pass">
 								<div class="checkbox">
 									<input id="checkbox" class="styled" type="checkbox">
@@ -43,7 +42,7 @@
 								</div>
 	        					<a href="#" class="for-pass">Forget password</a>
         					</div>
-        					<input type="button" value="Login" class="button-submit"></input>
+        					<input type="submit" value="Login" class="button-submit"></input>
         				</form>
         			</div>
         		</div>
@@ -56,6 +55,30 @@
     <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/icheck.min.js" type="text/javascript"></script>
     <script src="../assets/js/admin-signin-main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $('#form_signin').submit(function(){
+        event.preventDefault();
+        var formData = $('#form_signin').serialize();
+        $.ajax({
+            type: "POST",
+            url: "signin-post.php",
+            data: formData,
+            dataType: "text",
+            success: function(data){
+                if(data === 'fuckoff!'){
+                    window.location = "../index.php";
+                }
+                else
+                {
+                    window.location = "index.php";   
+                }
+            },
+            error: function(exception) {
+                console.log("error: "+exception);
+            }
+        });
+    });
+    </script>
       
     </body>
 </html>

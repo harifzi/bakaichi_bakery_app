@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------------------------
  Login Style Strat
 -------------------------------------------------------------------------------*/
-.login-wrapper{ height: 100%; height: 100vh;  width: 100%;font-family: 'Poppins', sans-serif;; }
+.login-wrapper{ height: 100%; height: 100vh;  width: 100%;font-family: "Roboto","Helvetica Neue",Arial, sans-serif;; }
 .bg-image{ background-repeat: no-repeat; background-position:  center top; position: relative; background-size: cover }
 .bg-image:before{position: absolute; left: 0; right: 0; top: 0;bottom: 0;   width: 100%; height: 100%; display: block;content: "";}
 .bg-image .container{ position: relative; z-index: 1; text-align: center; }

@@ -1,11 +1,12 @@
 <?php
-    // session_start();
+include_once '../config/database.php';
+include_once '../objects/user.php';
 
-    // if(!isset($_SESSION['bakaichi_signedIn']))
-    // {
-    //     header('Location:signin.php');
-    //     exit();
-    // }
+$database = new Database();
+$db = $database->getConnection();
+
+$user = new User($db);
+$user->AdminAuth();
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,7 +32,7 @@
 
     <!--     Fonts and icons     -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
@@ -204,6 +205,7 @@
     <!-- Light Bootstrap Table Core javascript -->
 	<script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
+    <script type="text/javascript" src="../assets/js/signout-post.js"></script>
 	<!-- Light Bootstrap Table main -->
 	<!-- <script src="assets/js/admin-main.js"></script> -->
 </html>

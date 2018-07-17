@@ -1,3 +1,14 @@
+<?php
+include_once '../config/database.php';
+include_once '../objects/user.php';
+
+$database = new Database();
+$db = $database->getConnection();
+
+$user = new User($db);
+$user->AdminAuth();
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +33,7 @@
 
     <!--     Fonts and icons     -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>

@@ -1,21 +1,12 @@
 <?php
-    // session_start();
+include_once '../config/database.php';
+include_once '../objects/user.php';
 
-    // if(!isset($_SESSION['bakaichi_signedIn']))
-    // {
-    //     header('Location:signin.php');
-    //     exit();
-    // }
+$database = new Database();
+$db = $database->getConnection();
 
-
-    include_once '../config/database.php';
-    include_once '../objects/jenis-kue.php';
-
-    $database = new Database();
-    $db = $database->getConnection();
-
-    $jenis_kue = new JenisKue($db);
-
+$user = new User($db);
+$user->AdminAuth();
 ?>
 <!doctype html>
 <html lang="en">

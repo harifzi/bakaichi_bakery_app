@@ -63,7 +63,7 @@ class User{
         }
     }
 
-    // SignIn
+    // User SignIn
     public function Signin()
     {
         $query = "SELECT user_id,username,email,password,role FROM ".$this->table_name." WHERE username=:username_or_email OR email=:username_or_email LIMIT 1";
@@ -80,16 +80,73 @@ class User{
             if(password_verify($this->password, $row['password']))
             {
                 session_start();
-                $_SESSION['session_bakaichi_bakery'] = $row['username'];
+                $_SESSION['session_bakaichi_bakery'] = $row['user_id'];
+                $_SESSION['session_bakaichi_bakery_level'] = $row['role'];
+                $_SESSION['session_bakaichi_bakery_username'] = $row['username'];
                 return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
 
+    // Admin SignIn
+    public function AdminSignin()
+    {
+        $query = "SELECT user_id,username,email,password,role FROM ".$this->table_name." WHERE username=:username_or_email OR email=:username_or_email LIMIT 1";
+
+        $stmt = $this->conn->prepare($query);
+        
+        $this->username_or_email=htmlspecialchars(strip_tags($this->username_or_email));
+        $stmt->bindParam(":username_or_email",$this->username_or_email);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($stmt->rowCount() > 0)
+        {
+            if(password_verify($this->password, $row['password']))
+            {
+                if($row['role'] == 1)
+                {
+                    session_start();
+                    $_SESSION['session_bakaichi_bakery'] = $row['user_id'];
+                    $_SESSION['session_bakaichi_bakery_level'] = $row['role'];
+                    $_SESSION['session_bakaichi_bakery_username'] = $row['username'];
+                    return true;
+                }
+                else
+                {
+                    echo 'fuckoff!';
+                    return false;
+                }
+            }
+        }
+    }
+
+    public function AdminAuth()
+    {
+        session_start();
+        if(!isset($_SESSION['session_bakaichi_bakery_level']))
+        {
+            header("Location: signin.php");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    // SignOut
     public function Signout()
     {
-        session_destroy();
+        session_start();
         unset($_SESSION['session_bakaichi_bakery']);
+        unset($_SESSION['session_bakaichi_bakery_level']);
+        unset($_SESSION['session_bakaichi_bakery_username']);
         return true;
     }
+}
 ?>

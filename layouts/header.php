@@ -33,7 +33,7 @@
 
                                     if(isset($_SESSION['session_bakaichi_bakery']))
                                     {
-                                        echo'<li><a href="myprofile">My Profile</a></li><li><a id="signout">Sign Out</a></li>';
+                                        echo'<li><a href="myprofile">My Profile</a></li><li><a href="javascript:void(0)" id="signout">Sign Out</a></li>';
                                     }
                                     else
                                     {

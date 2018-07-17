@@ -159,16 +159,6 @@
         <script src="assets/js/main.js"></script>
         
         <script type="text/javascript">
-        $('input[name="nama_depan"]').val("Amin");
-        $('input[name="nama_belakang"]').val("Gledek");
-        $('input[name="email"]').val("admincu@gmail.com");
-        $('input[name="username"]').val("admin");
-        $('input[name="alamat"]').val("Jl. Wonorejo 1 / 312");
-        $('input[name="kode_pos"]').val("66566");
-        $('input[name="telepon"]').val("089786675646");
-        $('input[name="username"]').val("admin");
-        $('input[name="password"]').val("admin123");
-        
         $('#submit').click(function(){
             event.preventDefault();
 
@@ -188,7 +178,7 @@
                     }
                 },
                 success: function(data){
-                    console.log(data);
+                    window.location = "index.php";
                 },
                 error: function(exception) {
                     console.log(exception);

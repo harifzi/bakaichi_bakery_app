@@ -87,21 +87,9 @@
             </div>
 			
 			<div class="main_products_content text-center">
-				<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-duration="4s">
-					<div class="single_product">
-						<a href="index.php"><img src="assets/gallery/tora_tiramisu.jpg" alt="" /></a>
-						<div class="product_detail">Tora Tiramisu<br/>Price: RP 140.000<br/></div>
-					</div>
-				</div>
-
-				<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-duration="4s">
-					<div class="single_product">
-						<img src="assets/gallery/rocky_cookie_mini.jpg" alt="" />
-						<div class="product_detail">Rocky Cookie Mini<br/>Price: RP 70.000<br/></div>
-					</div>
-				</div>
-				
-				<div class="col-sm-12 col-md-12 col-xs-12">
+				<div id="main_products"></div>
+                
+                <div class="col-sm-12 col-md-12 col-xs-12">
 					<div class="btn_bg wow fadeInLeft"  data-wow-duration="3s">
 						<a href="" class="btn">Load More</a>
 					</div>
@@ -128,6 +116,21 @@
             
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
+        <script type="text/javascript" src="assets/js/signout-post.js"></script>
+        <script type="text/javascript">
+        $.ajax({ 
+            type: 'GET', 
+            url: 'api/kue.php', 
+            data: { get_param: 'record_of_products' }, 
+            dataType: 'json',
+            success: function (data) { 
+                var getrecords = data['record_of_products'];
+                for($i in getrecords) {
+                    $('#main_products').append('<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s"><div class="single_product">'+'<img src="'+getrecords[$i].gambar+'" alt="" />'+'<div class="product_detail">'+getrecords[$i].nama+'<br/>Price: RP '+getrecords[$i].harga+'<br/></div>'+'</div></div>');
+                }
+            }
+        });
+        </script>
         
     </body>
 </html>

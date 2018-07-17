@@ -87,8 +87,6 @@
         <script src="assets/js/main.js"></script>
         <script type="text/javascript">
         $('#submit').click(function(){
-            event.preventDefault();
-
             var formData = $('#form_signin').serialize();
             $.ajax({
                 type: "POST",
