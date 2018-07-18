@@ -126,7 +126,7 @@
             success: function (data) { 
                 var getrecords = data['record_of_products'];
                 for($i in getrecords) {
-                    $('#main_products').append('<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s"><div class="single_product">'+'<img src="'+getrecords[$i].gambar+'" alt="" />'+'<div class="product_detail">'+getrecords[$i].nama+'<br/>Price: RP '+getrecords[$i].harga+'<br/></div>'+'</div></div>');
+                    $('#main_products').append('<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s"><div class="single_product">'+'<a href="product-detail.php"><img src="'+getrecords[$i].gambar+'" alt="" /></a>'+'<div class="product_detail">'+getrecords[$i].nama+'<br/>Price: RP '+getrecords[$i].harga+'<br/></div>'+'</div></div>');
                 }
             }
         });

@@ -33,8 +33,8 @@ if (isset($_FILES['gambar'])) {
                 $pic_name_destination = 'assets/gallery/' . $pic_name_new;
                 
                 if (move_uploaded_file($pic_tmp, $pic_destination)) {
-                    // Success
-                	$kue->nama_kue=$_POST['nama_kue'];
+                    
+                    $kue->nama_kue=$_POST['nama_kue'];
                     $kue->harga_kue=$_POST['harga'];
                     $kue->jenis_kue_id=$_POST['jenis'];
                     $kue->deskripsi_kue=$_POST['deskripsi'];
