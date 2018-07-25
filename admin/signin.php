@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if(isset($_SESSION['session_bakaichi_bakery_level']))
+{
+    if($_SESSION['session_bakaichi_bakery_level'] == '1')
+    {
+        header("Location: index.php");
+    }
+    else
+    {
+        header("Location: ../index.php");
+    }
+}
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>

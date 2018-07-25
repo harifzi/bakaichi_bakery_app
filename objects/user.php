@@ -30,11 +30,12 @@ class User{
 		$query = "INSERT INTO
 					".$this->table_name."
 				SET
-					username=:username,email=:email,password=:password,nama_depan=:nama_depan,nama_belakang=:nama_belakang,role=:role,telepon=:telepon,alamat=:alamat,kode_pos=:kode_pos";
+					user_id=:user_id,username=:username,email=:email,password=:password,nama_depan=:nama_depan,nama_belakang=:nama_belakang,role=:role,telepon=:telepon,alamat=:alamat,kode_pos=:kode_pos";
 
 		$stmt = $this->conn->prepare($query);
 
-		$this->username=htmlspecialchars(strip_tags($this->username));
+		$this->user_id=htmlspecialchars(strip_tags($this->user_id));
+        $this->username=htmlspecialchars(strip_tags($this->username));
 		$this->email=htmlspecialchars(strip_tags($this->email));
 		$this->nama_depan=htmlspecialchars(strip_tags($this->nama_depan));
 		$this->nama_belakang=htmlspecialchars(strip_tags($this->nama_belakang));
@@ -43,7 +44,8 @@ class User{
         $this->alamat=htmlspecialchars(strip_tags($this->alamat));
 		$this->kode_pos=htmlspecialchars(strip_tags($this->kode_pos));
 
-		$stmt->bindParam(":username",$this->username);
+		$stmt->bindParam(":user_id",$this->user_id);
+        $stmt->bindParam(":username",$this->username);
 		$stmt->bindParam(":email",$this->email);
         $stmt->bindParam(":password",$new_password);
         $stmt->bindParam(":nama_depan",$this->nama_depan);
@@ -82,7 +84,6 @@ class User{
                 session_start();
                 $_SESSION['session_bakaichi_bakery'] = $row['user_id'];
                 $_SESSION['session_bakaichi_bakery_level'] = $row['role'];
-                $_SESSION['session_bakaichi_bakery_username'] = $row['username'];
                 return true;
             }
             else
@@ -113,7 +114,6 @@ class User{
                     session_start();
                     $_SESSION['session_bakaichi_bakery'] = $row['user_id'];
                     $_SESSION['session_bakaichi_bakery_level'] = $row['role'];
-                    $_SESSION['session_bakaichi_bakery_username'] = $row['username'];
                     return true;
                 }
                 else
@@ -128,14 +128,14 @@ class User{
     public function AdminAuth()
     {
         session_start();
-        if(!isset($_SESSION['session_bakaichi_bakery_level']))
+        if($_SESSION['session_bakaichi_bakery_level'] == '1')
         {
-            header("Location: signin.php");
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            header("Location: signin.php");
+            return false;
         }
     }
 
@@ -143,10 +143,50 @@ class User{
     public function Signout()
     {
         session_start();
-        unset($_SESSION['session_bakaichi_bakery']);
-        unset($_SESSION['session_bakaichi_bakery_level']);
-        unset($_SESSION['session_bakaichi_bakery_username']);
+        unset($_SESSION["session_bakaichi_bakery"]);
+        unset($_SESSION["session_bakaichi_bakery_level"]);
         return true;
+    }
+
+    // Read One
+    public function readOne()
+    {
+        $query = "SELECT
+                    user.user_id, user.nama_depan, user.nama_belakang, user.telepon, user.alamat, user.kode_pos
+                FROM
+                    " . $this->table_name . "
+                WHERE
+                    user_id = ?
+                LIMIT
+                    0,1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->user_id);
+        $stmt->execute();
+        
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->user_id = $row['user_id'];
+        $this->nama_depan = $row['nama_depan'];
+        $this->nama_belakang = $row['nama_belakang'];
+        $this->telepon = $row['telepon'];
+        $this->alamat = $row['alamat'];
+        $this->kode_pos = $row['kode_pos'];
+    }
+    
+    // Read All
+    public function readAll()
+    {
+
+        $query = "SELECT
+                    user.user_id, user.nama_depan, user.nama_belakang, user.telepon, user.alamat, user.kode_pos
+                FROM
+                    " . $this->table_name . "
+                ORDER BY
+                    user_id";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
     }
 }
 ?>

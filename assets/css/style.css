@@ -867,3 +867,34 @@ input:-ms-input-placeholder {
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+/*product_detail*/
+.product {
+    overflow:hidden;
+    padding:80px 0px;
+}
+
+.product .quantity {
+    width: 80px;
+    padding: 0 12px;
+    height: 40px;
+    vertical-align: top;
+    text-align: center;
+    outline: none;
+}
+
+.main_menu_bg .cart:hover{
+    height: 55px;
+    width: 55px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.menu-scroll .cart:hover {
+    background-color: #ffd600;
+}
+
+.checkout_section {
+    overflow:hidden;
+    padding:80px 0px;
+}

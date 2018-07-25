@@ -40,6 +40,25 @@
                                         echo '<li><a href="signin.php">Sign In</a></li>';    
                                     }
                                     ?>
+                                    <li>
+                                        <a href="javascript:void(0)" id="cart-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <span class="glyphicon glyphicon-shopping-cart"></span> </a>
+                                        <ul class="dropdown-menu" aria-labelledby="cart-dropdown">
+                                            <?php
+                                            if(!empty($_SESSION["bakaichi_cart_item"]))
+                                            {
+                                                foreach ($_SESSION["bakaichi_cart_item"] as $key)
+                                                {
+                                                    echo '<li><a href="javascript:void(0)">'.$key["nama"].'<br/><small>'.$key["quantity"].' x Rp. '.$key["harga"].'</small></a></li><br/>';
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo '<li><a href="javascript:void(0)">No product in the cart</a></li><br/>';
+                                            }
+                                            echo '<hr/><li><a href="cart.php">Cart</a></li>';
+                                            ?>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

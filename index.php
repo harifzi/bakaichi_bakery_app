@@ -19,7 +19,6 @@
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <!--<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
-
         <!--For Plugins external css-->
         <link rel="stylesheet" href="assets/css/plugins.css" />
 

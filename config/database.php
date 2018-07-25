@@ -2,7 +2,7 @@
 class Database{
      
     private $host = "localhost";
-    private $db_name = "bakaichi_bakery_app";
+    private $db_name = "3bakaichi_bakery_app";
     private $username = "root";
     private $password = "";
     public $conn;

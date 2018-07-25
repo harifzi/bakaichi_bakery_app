@@ -126,7 +126,7 @@
             
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
-        <script src="assets/js/costume.js"></script>
+        <script type="text/javascript" src="assets/js/signout-post.js"></script>
         
         <!--  Google Maps Plugin    -->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSASGdmgYfwO40Vi23JS8DVFZ1YqAvgNg"></script>

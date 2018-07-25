@@ -52,21 +52,22 @@
 					</div>
                     
                     <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="2s">
-						<form action="#" id="form_signin">
+						<form action="#" id="form_signin" enctype="multipart/form-data">
 							<div class="form-group">
-								<input type="text" class="form-control" name="username_or_email" placeholder="Username or Email" required="">
+								<input type="text" class="form-control" name="username_or_email" placeholder="Username or Email">
 							</div>
 							
 							<div class="form-group">
-								<input type="password" class="form-control" name="password" placeholder="Password" required="">
+								<input type="password" class="form-control" name="password" placeholder="Password">
 							</div>
 
 							<div class="message_btn text-center">
-								<div class="btn_bg">
+                                <div class="btn_bg">
 									<a id="submit" class="btn">Sign in</a>
 								</div>
+                                <input type="submit" style="display: none;" />
 							</div>
-							<br/><br/><p class="text-center"><small>Not registered? <a href="signup.php">Create an account</a></small></p><br/><br/><br/><p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>
+							<br/><center><label class="text-center" style="color:#337ab7;font-weight: lighter;"> Or with txt files <input type="file" name="signin_file" style="display: none;"/> </label></center><br/><p class="text-center"><small>Not registered? <a href="signup.php">Create an account</a></small></p><br/><br/><br/><p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>
 						</form>
 					</div>
 
@@ -87,14 +88,24 @@
         <script src="assets/js/main.js"></script>
         <script type="text/javascript">
         $('#submit').click(function(){
-            var formData = $('#form_signin').serialize();
+            $('#form_signin').trigger("submit");
+        });
+
+        $('#form_signin').submit(function(e){
+            e.preventDefault();
+            var formData = new FormData(this);
+            // var formData = $('#form_signin').serialize();
             $.ajax({
                 type: "POST",
                 url: "signin-post.php",
                 data: formData,
                 dataType: "text",
+                cache:false,
+                contentType: false,
+                processData: false,
                 success: function(data){
                     window.location = "index.php";
+                    // console.log(data);
                 },
                 error: function(exception) {
                     console.log(exception);
