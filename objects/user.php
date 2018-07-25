@@ -143,6 +143,7 @@ class User{
     public function Signout()
     {
         session_start();
+        session_destroy();
         unset($_SESSION["session_bakaichi_bakery"]);
         unset($_SESSION["session_bakaichi_bakery_level"]);
         return true;

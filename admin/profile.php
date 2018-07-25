@@ -192,9 +192,6 @@ $user->AdminAuth();
     <!--  Notifications Plugin    -->
     <script src="../assets/js/bootstrap-notify.js"></script>
 
-    <!-- Light Bootstrap Table Core javascript -->
+    <script type="text/javascript" src="../assets/js/signout-post.js"></script>
     <script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-
-    <!-- Light Bootstrap Table main -->
-    <!-- <script src="assets/js/admin-main.js"></script> -->
 </html>

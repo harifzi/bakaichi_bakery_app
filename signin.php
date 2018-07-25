@@ -67,7 +67,7 @@
 								</div>
                                 <input type="submit" style="display: none;" />
 							</div>
-							<br/><center><label class="text-center" style="color:#337ab7;font-weight: lighter;"> Or with txt files <input type="file" name="signin_file" style="display: none;"/> </label></center><br/><p class="text-center"><small>Not registered? <a href="signup.php">Create an account</a></small></p><br/><br/><br/><p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>
+							<br/><br/><p class="text-center"><small>Not registered? <a href="signup.php">Create an account</a></small></p><br/><br/><br/><p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>
 						</form>
 					</div>
 

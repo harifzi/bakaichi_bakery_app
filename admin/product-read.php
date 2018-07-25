@@ -42,7 +42,7 @@ if($record_num > 0)
             echo '<br/></div></div>';
             
         } 
-        echo '</div>';
+        echo '</div><br/><br/><br/><br/><br/><br/><br/><br/>';
 
     // Pagination
 

@@ -130,7 +130,8 @@
                 url: 'cart-post.php', 
                 data: formData, 
                 dataType: 'text',
-                success: function(data){ 
+                success: function(data){
+                    window.location = "cart.php"; 
                     console.log(data);
                 },
                 error: function(exception){

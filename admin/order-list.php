@@ -93,7 +93,6 @@ $user->AdminAuth();
     <!-- Light Bootstrap Table Core javascript -->
     <script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
-    <!-- Light Bootstrap Table main -->
     <script type="text/javascript" src="../assets/js/signout-post.js"></script>
-    <script src="../app/invoice-list.js"></script>
+    <script src="../app/order-list.js"></script>
 </html>

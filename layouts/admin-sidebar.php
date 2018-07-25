@@ -34,6 +34,12 @@
                 </a>
             </li>
             <li>
+                <a href="order-list.php">
+                    <i class="pe-7s-cart"></i>
+                    <p>Order List</p>
+                </a>
+            </li>
+            <li>
                 <a href="invoice-list.php">
                     <i class="pe-7s-news-paper"></i>
                     <p>Invoice List</p>

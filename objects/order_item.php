@@ -43,5 +43,37 @@ class OrderItem{
             return false;
         }     
     }
+
+    // Read All
+    public function readAll($from_record_num, $records_per_page)
+    {
+        // please make sure, your database name correct^^
+        $query = "SELECT
+                    order_item.order_item_id, order.order_id, kue.nama_kue, order_item.total_order, jenis_kue.jenis_kue, order.order_created_at, user.nama_depan, user.nama_belakang, user.email
+                FROM
+                    ".$this->table_name."
+                INNER JOIN `3bakaichi_bakery_app`.order ON (order_item.order_id = order.order_id) INNER JOIN `3bakaichi_bakery_app`.kue ON (order_item.kue_id = kue.kue_id) INNER JOIN `3bakaichi_bakery_app`.jenis_kue ON (kue.jenis_kue_id = jenis_kue.jenis_kue_id) INNER JOIN `3bakaichi_bakery_app`.user ON (order.user_id = user.user_id) LIMIT ?, ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $from_record_num, PDO::PARAM_INT);
+        $stmt->bindParam(2, $records_per_page, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt;   
+    }
+
+    // Count All
+    public function countAll()
+    {
+        $query = "SELECT COUNT(*) as total_rows FROM " . $this->table_name . "";
+     
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     
+        return $row['total_rows'];
+    }
 }    
 ?>

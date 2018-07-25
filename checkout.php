@@ -81,9 +81,9 @@
                             <?php
                             $catch = "";
                             $x=0;
-                            $y=1;
                             $total_belanja=0;
-                            $cart_counter=0;
+                            $cek = $_SESSION["bakaichi_cart_item"];
+                            print_r(json_encode($cek));
                             foreach ($_SESSION["bakaichi_cart_item"] as $key)
                             {
                                 // variable catch
@@ -95,7 +95,6 @@
                                 $catch .= '"harga":"'.$key['harga'].'",';
                                 $catch .= '"quantity":"'.$key['quantity'].'"';
                                 $catch .= '}';
-                                $catch .= $x<$y ? ',' : '';
                                 $x++;
 
                                 echo '<div class="col-md-12 col-sm-12 col-xs-12">';
@@ -110,7 +109,7 @@
                                 $total_belanja+=intval($key["harga"])*intval($key["quantity"]);
 
                             }
-                            $catch = '{"record_of_session":[' . $catch . ']}';
+                            $catch = '{"record_of_session":' . json_encode($cek) . '}';
                             ?>
 
                             <div class="col-md-12 col-sm-12 col-xs-12"><br/>

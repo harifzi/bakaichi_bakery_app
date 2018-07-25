@@ -66,7 +66,7 @@ $kue->readOne();
         <section class="product">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-duration="2s">
+                    <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft jump" data-wow-duration="2s">
                         <div class="head_title text-center">
                             <img src="<?php echo htmlspecialchars($kue->gambar_kue, ENT_QUOTES); ?>" style="max-width:400px;max-height:400px;"/>
                         </div>
@@ -110,6 +110,8 @@ $kue->readOne();
 
         <script type="text/javascript">
         $('#add_to_cart').click(function(){
+            $nama='+<?php echo htmlspecialchars($kue->nama_kue, ENT_QUOTES); ?>+';
+            $id=<?php echo htmlspecialchars($kue->kue_id, ENT_QUOTES); ?>;
         	var formData = {action: 'add',quantity: $('input[name="quantity"]').val(), kue_id: <?php echo htmlspecialchars($kue->kue_id, ENT_QUOTES); ?>};
         	$.ajax({
         		type: 'POST', 
@@ -118,6 +120,7 @@ $kue->readOne();
 			    dataType: 'text',
 			    success: function(data){ 
 			    	console.log(data);
+                    window.location = 'shop.php';
 			    },
 			    error: function(exception){
 			    	console.log(exception);

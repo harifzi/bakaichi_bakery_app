@@ -101,6 +101,7 @@ $user->AdminAuth();
     <!-- Light Bootstrap Table main -->
     <!-- <script src="assets/js/admin-main.js"></script> -->
 
+    <script type="text/javascript" src="../assets/js/signout-post.js"></script>
     <script src="../app/product-list.js"></script>
 
 </html>
