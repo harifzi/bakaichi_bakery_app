@@ -421,8 +421,7 @@ input:focus {
 }
 
 .sidebar:before {
-    opacity: .33;
-    background: #000000;
+    
 }
 
 .sidebar:after {

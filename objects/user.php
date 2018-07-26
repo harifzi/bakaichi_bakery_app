@@ -84,6 +84,11 @@ class User{
                 session_start();
                 $_SESSION['session_bakaichi_bakery'] = $row['user_id'];
                 $_SESSION['session_bakaichi_bakery_level'] = $row['role'];
+                $user_ip=$_SERVER['REMOTE_ADDR'];
+                $logfile = fopen("signin-log.txt","a+") or die("Unable to open file!");
+                $txt = ":SignedIn => ".date('Y-m-d/G:i:s')."\n".":RemoteAdress => ".$user_ip."\n".":UserID =>".$row['user_id']."\n\n";
+                fwrite($logfile, $txt);
+                fclose($logfile);
                 return true;
             }
             else
@@ -143,6 +148,14 @@ class User{
     public function Signout()
     {
         session_start();
+        if($_SESSION["session_bakaichi_bakery_level"] != '1')
+        {
+            $user_ip=$_SERVER['REMOTE_ADDR'];
+            $logfile = fopen("signin-log.txt","a+") or die("Unable to open file!");
+            $txt = ":SignedOut => ".date('Y-m-d/G:i:s')."\n".":RemoteAdress => ".$user_ip."\n".":UserID =>".$_SESSION['session_bakaichi_bakery']."\n\n";
+            fwrite($logfile, $txt);
+            fclose($logfile);
+        }
         session_destroy();
         unset($_SESSION["session_bakaichi_bakery"]);
         unset($_SESSION["session_bakaichi_bakery_level"]);

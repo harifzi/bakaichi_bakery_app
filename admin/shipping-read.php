@@ -2,16 +2,16 @@
 include_once '../config/core.php';
 
 include_once '../config/database.php';
-include_once '../objects/order_item.php';
+include_once '../objects/shipping.php';
  
 $database = new Database();
 $db = $database->getConnection();
  
-$order = new OrderItem($db);
+$shipping = new Shipping($db);
  
-$total_rows=$order->countAll(); 
+$total_rows=$shipping->countAll(); 
  
-$stmt = $order->readAll($from_record_num, $records_per_page);
+$stmt = $shipping->readAll($from_record_num, $records_per_page);
 $record_num = $stmt->rowCount();
  
 if($record_num > 0)
@@ -19,22 +19,36 @@ if($record_num > 0)
     // Read Invoice
     echo '<div class="content table-responsive table-full-width">';
     echo '<table class="table table-hover table-striped">';
-    echo '<thead><th>#</th><th>Tanggal Transaksi</th><th>Kue</th><th>Jenis</th><th>Jumlah</th><th>Pembeli</th><th>Order ID</th></thead>';
+    echo '<thead><th>#</th><th>Nama</th><th>Alamat</th><th>Kontak</th><th>Kurir</th><th>Status</th><th></th>
+            </thead>';
     echo '<tbody>';
     
     $i=1;
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-    
+        
         extract($row);
 
-            echo '<tr>';
+            echo '<tr shipping='."{$shipping_id}".'>';
             echo '<td>'."{$i}".'</td>';
-            echo '<td>'."{$order_created_at}".'</td>';
-            echo '<td>'."{$nama_kue}".'</td>';
-            echo '<td>'."{$jenis_kue}".'</td>';
-            echo '<td>'."{$total_order}".'</td>';
-            echo '<td>'."{$nama_depan} {$nama_belakang}".'</td>';
-            echo '<td>'."{$order_id}".'</td>';
+            echo '<td>'."{$nama_depan}"." "."{$nama_belakang}".'</td>';
+            echo '<td>'."{$alamat}"." "."<br/>Kodepos: {$kode_pos}".'</td>';
+            echo '<td>'."Telepon: {$telepon}<br/> Email: {$email}".'</td>';
+            echo '<td>'."{$kurir}".'</td>';
+            // echo '<td>'."{$invoice_created_at}".'</td>';
+            if($status_payment == 1 && $status_shipping == 1){
+                echo '<td class="text-success">'.'Selesai'.'</td>';
+            }
+            else if($status_payment == 1 && $status_shipping == 0) {
+                echo '<td class="text-danger">'.'Lakukan Pengiriman'.'</td>';
+                echo '<td><button type="button" class="btn btn-primary" id="edit"><i class="fa fa-edit"></i></button></td>';
+            }
+            else if($status_payment == 0 && strtotime(date('Y-m-d G:i:s')) < strtotime($payment_expired_at))
+            {
+                echo '<td class="text-info">'.'Menunggu Pembayaran'.'</td>';
+            }
+            else if($status_payment == 0 && strtotime(date('Y-m-d G:i:s')) >= strtotime("$payment_expired_at")){
+                echo '<td class="text-danger">'.'Order Dibatalkan'.'</td>';
+            }
             echo '</tr>';
         $i++;
 

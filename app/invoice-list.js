@@ -3,7 +3,7 @@ showInvoices(1);
 // SHOW INVOICES
 function showInvoices(page)
 {
-    $('#page-title').html('Read Invoice');
+    $('#page-title').html('Invoice');
     
     $('#page-content').fadeOut('slow', function()
     {
