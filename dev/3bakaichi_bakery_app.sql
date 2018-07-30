@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Jul 2018 pada 09.38
--- Versi server: 10.1.30-MariaDB
--- Versi PHP: 7.2.2
+-- Generation Time: Jul 30, 2018 at 12:31 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `invoice`
+-- Table structure for table `invoice`
 --
 
 CREATE TABLE `invoice` (
@@ -35,16 +35,18 @@ CREATE TABLE `invoice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `invoice`
+-- Dumping data for table `invoice`
 --
 
 INSERT INTO `invoice` (`INVOICE_ID`, `USER_ID`, `INVOICE_CREATED_AT`) VALUES
+('invc5d3bf50a87a1914cbd0dc18a64d1f636424829d66afba5f5a7897beef3757c5', '2ac179637c18da014121799746e1a5f9', '2018-07-13 03:49:47'),
+('invd4a275e9b83947a32207b2d0560909eb5e122474c8de8e5fd0517b876117d38a', '5eff68af3bc31730f7e70f9cf0e39093', '2018-07-25 17:57:26'),
 ('inve7bb364761e5164f087a4117c47f4cd89087017d95ec90eafdbe6f91734bbd3f', '0c5ea8d884533461731461caed5e38a4', '2018-07-24 12:32:09');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `invoice_history`
+-- Table structure for table `invoice_history`
 --
 
 CREATE TABLE `invoice_history` (
@@ -57,7 +59,7 @@ CREATE TABLE `invoice_history` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_kue`
+-- Table structure for table `jenis_kue`
 --
 
 CREATE TABLE `jenis_kue` (
@@ -66,7 +68,7 @@ CREATE TABLE `jenis_kue` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jenis_kue`
+-- Dumping data for table `jenis_kue`
 --
 
 INSERT INTO `jenis_kue` (`JENIS_KUE_ID`, `JENIS_KUE`) VALUES
@@ -76,7 +78,7 @@ INSERT INTO `jenis_kue` (`JENIS_KUE_ID`, `JENIS_KUE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komentar_kritik`
+-- Table structure for table `komentar_kritik`
 --
 
 CREATE TABLE `komentar_kritik` (
@@ -91,7 +93,7 @@ CREATE TABLE `komentar_kritik` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kritik_saran`
+-- Table structure for table `kritik_saran`
 --
 
 CREATE TABLE `kritik_saran` (
@@ -106,7 +108,7 @@ CREATE TABLE `kritik_saran` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kue`
+-- Table structure for table `kue`
 --
 
 CREATE TABLE `kue` (
@@ -119,7 +121,7 @@ CREATE TABLE `kue` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kue`
+-- Dumping data for table `kue`
 --
 
 INSERT INTO `kue` (`KUE_ID`, `JENIS_KUE_ID`, `NAMA_KUE`, `HARGA_KUE`, `GAMBAR_KUE`, `DESKRIPSI_KUE`) VALUES
@@ -130,7 +132,7 @@ INSERT INTO `kue` (`KUE_ID`, `JENIS_KUE_ID`, `NAMA_KUE`, `HARGA_KUE`, `GAMBAR_KU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kurir`
+-- Table structure for table `kurir`
 --
 
 CREATE TABLE `kurir` (
@@ -140,7 +142,7 @@ CREATE TABLE `kurir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kurir`
+-- Dumping data for table `kurir`
 --
 
 INSERT INTO `kurir` (`KURIR_ID`, `KURIR`, `BIAYA_KURIR`) VALUES
@@ -150,7 +152,7 @@ INSERT INTO `kurir` (`KURIR_ID`, `KURIR`, `BIAYA_KURIR`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
@@ -162,16 +164,18 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `order`
+-- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`ORDER_ID`, `PAYMENT_ID`, `USER_ID`, `INVOICE_ID`, `ORDER_CREATED_AT`) VALUES
-('odraf597457bf7dc76d53a962b5a50e1d9e0f64a04249cbd43343a0aeaf3989378f', 'pay3d5cee4585196e1112dda3f2288b1e83d75c409c33b99ca321b674d5ed3cabc6', '0c5ea8d884533461731461caed5e38a4', 'inve7bb364761e5164f087a4117c47f4cd89087017d95ec90eafdbe6f91734bbd3f', '2018-07-24 13:33:06');
+('odr356b0a279b6a89633eff243588cdbdc4386e28a5aca59b4b3212612a2ea3265e', 'pay25b2cf4aa33f95ac7c44cbca6aebd07e2c43f768a4ce58f222e4845e1a19b375', '2ac179637c18da014121799746e1a5f9', 'invc5d3bf50a87a1914cbd0dc18a64d1f636424829d66afba5f5a7897beef3757c5', '2018-07-13 03:49:47'),
+('odraf597457bf7dc76d53a962b5a50e1d9e0f64a04249cbd43343a0aeaf3989378f', 'pay3d5cee4585196e1112dda3f2288b1e83d75c409c33b99ca321b674d5ed3cabc6', '0c5ea8d884533461731461caed5e38a4', 'inve7bb364761e5164f087a4117c47f4cd89087017d95ec90eafdbe6f91734bbd3f', '2018-07-24 13:33:06'),
+('odrb5aa267cee2e26051269868ebc57b5a05a3e1282a25b8d3becb3406db46ac892', 'pay52ad42f59bebfc9dd1bf3982d10828f32874ee041635bfe2a32d9d5269f15863', '5eff68af3bc31730f7e70f9cf0e39093', 'invd4a275e9b83947a32207b2d0560909eb5e122474c8de8e5fd0517b876117d38a', '2018-07-25 17:57:26');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order_item`
+-- Table structure for table `order_item`
 --
 
 CREATE TABLE `order_item` (
@@ -182,17 +186,22 @@ CREATE TABLE `order_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `order_item`
+-- Dumping data for table `order_item`
 --
 
 INSERT INTO `order_item` (`ORDER_ITEM_ID`, `ORDER_ID`, `KUE_ID`, `TOTAL_ORDER`) VALUES
+('odrit1a67ce0dcb7d0b48cb183bfdc3250a96ce98cfc5f6d65e93e6f9e10d5516d807', 'odrb5aa267cee2e26051269868ebc57b5a05a3e1282a25b8d3becb3406db46ac892', 6, 2),
+('odrit1c5118a301115bc80349bd030b557c0e0845e254c5d06dd71825cfd80b34cb7c', 'odr356b0a279b6a89633eff243588cdbdc4386e28a5aca59b4b3212612a2ea3265e', 5, 2),
 ('odrit3c42cbd6cca833f42c96d633421c2332ab11d4176cd89f2f114f1dbc33aa9e62', 'odraf597457bf7dc76d53a962b5a50e1d9e0f64a04249cbd43343a0aeaf3989378f', 5, 1),
-('odrit7ad9cd8cbbea421b08f61797ca516c74dd51a44c723620628045c15adc869820', 'odraf597457bf7dc76d53a962b5a50e1d9e0f64a04249cbd43343a0aeaf3989378f', 6, 2);
+('odrit415e1b03c63bedd92cde47d7586e9bb4ada0e56e318dcac861690770700b7a4f', 'odrb5aa267cee2e26051269868ebc57b5a05a3e1282a25b8d3becb3406db46ac892', 5, 1),
+('odrit7ad9cd8cbbea421b08f61797ca516c74dd51a44c723620628045c15adc869820', 'odraf597457bf7dc76d53a962b5a50e1d9e0f64a04249cbd43343a0aeaf3989378f', 6, 2),
+('odritaeca151a69a8c39a84becdf3cbed8cb79ee34b31b64b2a0279e39e86caffb41e', 'odr356b0a279b6a89633eff243588cdbdc4386e28a5aca59b4b3212612a2ea3265e', 4, 1),
+('odritdda58189b0551d48a559ced16c0faf7676f3b661f314fa72afb1c5442c677d1c', 'odrb5aa267cee2e26051269868ebc57b5a05a3e1282a25b8d3becb3406db46ac892', 4, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order_item_history`
+-- Table structure for table `order_item_history`
 --
 
 CREATE TABLE `order_item_history` (
@@ -206,7 +215,7 @@ CREATE TABLE `order_item_history` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `payment`
+-- Table structure for table `payment`
 --
 
 CREATE TABLE `payment` (
@@ -218,16 +227,18 @@ CREATE TABLE `payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `payment`
+-- Dumping data for table `payment`
 --
 
 INSERT INTO `payment` (`PAYMENT_ID`, `USER_ID`, `TOTAL_PAYMENT`, `STATUS_PAYMENT`, `PAYMENT_EXPIRED_AT`) VALUES
-('pay3d5cee4585196e1112dda3f2288b1e83d75c409c33b99ca321b674d5ed3cabc6', '0c5ea8d884533461731461caed5e38a4', 518000, 0, '2018-08-06 20:04:41');
+('pay25b2cf4aa33f95ac7c44cbca6aebd07e2c43f768a4ce58f222e4845e1a19b375', '2ac179637c18da014121799746e1a5f9', 365000, 0, '2018-07-26 22:49:47'),
+('pay3d5cee4585196e1112dda3f2288b1e83d75c409c33b99ca321b674d5ed3cabc6', '0c5ea8d884533461731461caed5e38a4', 518000, 0, '2018-08-06 20:04:41'),
+('pay52ad42f59bebfc9dd1bf3982d10828f32874ee041635bfe2a32d9d5269f15863', '5eff68af3bc31730f7e70f9cf0e39093', 658000, 0, '2018-08-07 20:04:41');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `shipping`
+-- Table structure for table `shipping`
 --
 
 CREATE TABLE `shipping` (
@@ -240,16 +251,18 @@ CREATE TABLE `shipping` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `shipping`
+-- Dumping data for table `shipping`
 --
 
 INSERT INTO `shipping` (`SHIPPING_ID`, `KURIR_ID`, `INVOICE_ID`, `ORDER_ID`, `STATUS_SHIPPING`, `CATATAN`) VALUES
-('shp2e7b8a0fbdcd42594919ce11ce546f8e7880efdc291db23e9e31e3a521436360', 0, 'inve7bb364761e5164f087a4117c47f4cd89087017d95ec90eafdbe6f91734bbd3f', 'odraf597457bf7dc76d53a962b5a50e1d9e0f64a04249cbd43343a0aeaf3989378f', 0, 'Tidak ada catatan');
+('shp2e7b8a0fbdcd42594919ce11ce546f8e7880efdc291db23e9e31e3a521436360', 0, 'inve7bb364761e5164f087a4117c47f4cd89087017d95ec90eafdbe6f91734bbd3f', 'odraf597457bf7dc76d53a962b5a50e1d9e0f64a04249cbd43343a0aeaf3989378f', 0, 'Tidak ada catatan'),
+('shp34a3c92e71568ad5082e1c610e1b90c5c41f8dff78bebb53aa2db62ab905b953', 0, 'invd4a275e9b83947a32207b2d0560909eb5e122474c8de8e5fd0517b876117d38a', 'odrb5aa267cee2e26051269868ebc57b5a05a3e1282a25b8d3becb3406db46ac892', 0, 'Tidak ada catatan'),
+('shp4dd8724a96f7d44967fa6a7fe65cfdd6fa0b52c2b8a240e6578d8df121462ccf', 1, 'invc5d3bf50a87a1914cbd0dc18a64d1f636424829d66afba5f5a7897beef3757c5', 'odr356b0a279b6a89633eff243588cdbdc4386e28a5aca59b4b3212612a2ea3265e', 0, 'Tidak ada catatan');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -268,11 +281,12 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`USER_ID`, `USERNAME`, `EMAIL`, `PASSWORD`, `NAMA_DEPAN`, `NAMA_BELAKANG`, `ROLE`, `TELEPON`, `ALAMAT`, `KODE_POS`, `USER_CREATED_AT`, `USER_UPDATED_AT`) VALUES
 ('0c5ea8d884533461731461caed5e38a4', 'admin', 'mgdgsd.mgmt@gmail.com', '$2y$10$SNuM/XjLdLk7Dbir6iMZguCsAObHaX6QaUrer578xH63FttFh6j3e', 'Mas', 'Mas Admin', 1, '08578467563', 'Jl. Sukorejo Indramayu / 12', 60563, '2018-07-18 05:41:32', '2018-07-18 05:41:32'),
+('2ac179637c18da014121799746e1a5f9', 'bimo', 'bdup@gmail.com', '$2y$10$KT4RjLN.omcT3ndyHual8uV/znlJ.6l5j5zh.XIBlY/wZqkVmDkYG', 'Bimo Bdup', 'Gedih', 0, '089373743423', 'Jl. Jakabudaya Timur / No. 12', 64562, '2018-07-27 03:48:38', '0000-00-00 00:00:00'),
 ('5eff68af3bc31730f7e70f9cf0e39093', 'erwin', 'erwindanjo@gmail.com', '$2y$10$dtjhkaFC91.S9iX2DrIC1OvrV4UxZhd17vQflFJaFzN1rul4PAA62', 'Erwin', 'Santoso', 0, '08854573712', 'Jl. Gatau Lah Surabaya Pokoknya / 20', 65653, '2018-07-22 22:15:38', '0000-00-00 00:00:00');
 
 --
@@ -280,27 +294,27 @@ INSERT INTO `user` (`USER_ID`, `USERNAME`, `EMAIL`, `PASSWORD`, `NAMA_DEPAN`, `N
 --
 
 --
--- Indeks untuk tabel `invoice`
+-- Indexes for table `invoice`
 --
 ALTER TABLE `invoice`
   ADD PRIMARY KEY (`INVOICE_ID`),
   ADD KEY `FK_RELATIONSHIP_14` (`USER_ID`);
 
 --
--- Indeks untuk tabel `invoice_history`
+-- Indexes for table `invoice_history`
 --
 ALTER TABLE `invoice_history`
   ADD PRIMARY KEY (`INVOICE_HISTORY_ID`),
   ADD KEY `FK_RELATIONSHIP_15` (`INVOICE_ID`);
 
 --
--- Indeks untuk tabel `jenis_kue`
+-- Indexes for table `jenis_kue`
 --
 ALTER TABLE `jenis_kue`
   ADD PRIMARY KEY (`JENIS_KUE_ID`);
 
 --
--- Indeks untuk tabel `komentar_kritik`
+-- Indexes for table `komentar_kritik`
 --
 ALTER TABLE `komentar_kritik`
   ADD PRIMARY KEY (`KOMENTAR_KRITIK_ID`),
@@ -308,27 +322,27 @@ ALTER TABLE `komentar_kritik`
   ADD KEY `FK_RELATIONSHIP_18` (`USER_ID`);
 
 --
--- Indeks untuk tabel `kritik_saran`
+-- Indexes for table `kritik_saran`
 --
 ALTER TABLE `kritik_saran`
   ADD PRIMARY KEY (`KRITIK_SARAN_ID`),
   ADD KEY `FK_RELATIONSHIP_16` (`USER_ID`);
 
 --
--- Indeks untuk tabel `kue`
+-- Indexes for table `kue`
 --
 ALTER TABLE `kue`
   ADD PRIMARY KEY (`KUE_ID`),
   ADD KEY `FK_RELATIONSHIP_1` (`JENIS_KUE_ID`);
 
 --
--- Indeks untuk tabel `kurir`
+-- Indexes for table `kurir`
 --
 ALTER TABLE `kurir`
   ADD PRIMARY KEY (`KURIR_ID`);
 
 --
--- Indeks untuk tabel `order`
+-- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`ORDER_ID`),
@@ -337,7 +351,7 @@ ALTER TABLE `order`
   ADD KEY `FK_RELATIONSHIP_4` (`USER_ID`);
 
 --
--- Indeks untuk tabel `order_item`
+-- Indexes for table `order_item`
 --
 ALTER TABLE `order_item`
   ADD PRIMARY KEY (`ORDER_ITEM_ID`),
@@ -345,21 +359,21 @@ ALTER TABLE `order_item`
   ADD KEY `FK_RELATIONSHIP_3` (`ORDER_ID`);
 
 --
--- Indeks untuk tabel `order_item_history`
+-- Indexes for table `order_item_history`
 --
 ALTER TABLE `order_item_history`
   ADD PRIMARY KEY (`ORDER_ITEM_HISTORY_ID`),
   ADD KEY `FK_RELATIONSHIP_21` (`ORDER_ITEM_ID`);
 
 --
--- Indeks untuk tabel `payment`
+-- Indexes for table `payment`
 --
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`PAYMENT_ID`),
   ADD KEY `FK_RELATIONSHIP_20` (`USER_ID`);
 
 --
--- Indeks untuk tabel `shipping`
+-- Indexes for table `shipping`
 --
 ALTER TABLE `shipping`
   ADD PRIMARY KEY (`SHIPPING_ID`),
@@ -368,48 +382,48 @@ ALTER TABLE `shipping`
   ADD KEY `FK_RELATIONSHIP_24` (`KURIR_ID`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`USER_ID`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `invoice`
+-- Constraints for table `invoice`
 --
 ALTER TABLE `invoice`
   ADD CONSTRAINT `FK_RELATIONSHIP_14` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `invoice_history`
+-- Constraints for table `invoice_history`
 --
 ALTER TABLE `invoice_history`
   ADD CONSTRAINT `FK_RELATIONSHIP_15` FOREIGN KEY (`INVOICE_ID`) REFERENCES `invoice` (`INVOICE_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `komentar_kritik`
+-- Constraints for table `komentar_kritik`
 --
 ALTER TABLE `komentar_kritik`
   ADD CONSTRAINT `FK_RELATIONSHIP_17` FOREIGN KEY (`KRITIK_SARAN_ID`) REFERENCES `kritik_saran` (`KRITIK_SARAN_ID`),
   ADD CONSTRAINT `FK_RELATIONSHIP_18` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `kritik_saran`
+-- Constraints for table `kritik_saran`
 --
 ALTER TABLE `kritik_saran`
   ADD CONSTRAINT `FK_RELATIONSHIP_16` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `kue`
+-- Constraints for table `kue`
 --
 ALTER TABLE `kue`
   ADD CONSTRAINT `FK_RELATIONSHIP_1` FOREIGN KEY (`JENIS_KUE_ID`) REFERENCES `jenis_kue` (`JENIS_KUE_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `order`
+-- Constraints for table `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `FK_RELATIONSHIP_13` FOREIGN KEY (`INVOICE_ID`) REFERENCES `invoice` (`INVOICE_ID`),
@@ -417,26 +431,26 @@ ALTER TABLE `order`
   ADD CONSTRAINT `FK_RELATIONSHIP_4` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `order_item`
+-- Constraints for table `order_item`
 --
 ALTER TABLE `order_item`
   ADD CONSTRAINT `FK_RELATIONSHIP_2` FOREIGN KEY (`KUE_ID`) REFERENCES `kue` (`KUE_ID`),
   ADD CONSTRAINT `FK_RELATIONSHIP_3` FOREIGN KEY (`ORDER_ID`) REFERENCES `order` (`ORDER_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `order_item_history`
+-- Constraints for table `order_item_history`
 --
 ALTER TABLE `order_item_history`
   ADD CONSTRAINT `FK_RELATIONSHIP_21` FOREIGN KEY (`ORDER_ITEM_ID`) REFERENCES `order_item` (`ORDER_ITEM_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `payment`
+-- Constraints for table `payment`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `FK_RELATIONSHIP_20` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`);
 
 --
--- Ketidakleluasaan untuk tabel `shipping`
+-- Constraints for table `shipping`
 --
 ALTER TABLE `shipping`
   ADD CONSTRAINT `FK_RELATIONSHIP_11` FOREIGN KEY (`INVOICE_ID`) REFERENCES `invoice` (`INVOICE_ID`),
