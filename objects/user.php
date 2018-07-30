@@ -133,6 +133,7 @@ class User{
     public function AdminAuth()
     {
         session_start();
+        $session_id=$_SESSION["session_bakaichi_bakery"];
         if($_SESSION['session_bakaichi_bakery_level'] == '1')
         {
             return true;
@@ -166,7 +167,7 @@ class User{
     public function readOne()
     {
         $query = "SELECT
-                    user.user_id, user.nama_depan, user.nama_belakang, user.telepon, user.alamat, user.kode_pos
+                    user.user_id, user.username, user.nama_depan, user.email, user.nama_belakang, user.telepon, user.alamat, user.kode_pos
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -179,8 +180,10 @@ class User{
         
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $this->user_id = $row['user_id'];
+        $this->username = $row['username'];
         $this->nama_depan = $row['nama_depan'];
         $this->nama_belakang = $row['nama_belakang'];
+        $this->email = $row['email'];
         $this->telepon = $row['telepon'];
         $this->alamat = $row['alamat'];
         $this->kode_pos = $row['kode_pos'];

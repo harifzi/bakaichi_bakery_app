@@ -80,22 +80,21 @@
                             
                             <?php
                             $catch = "";
-                            $x=0;
+                            // $x=0;
                             $total_belanja=0;
                             $cek = $_SESSION["bakaichi_cart_item"];
-                            print_r(json_encode($cek));
                             foreach ($_SESSION["bakaichi_cart_item"] as $key)
                             {
                                 // variable catch
-                                $catch .= '{';
-                                $catch .= '"id":"'.$key['id'].'",';
-                                $catch .= '"nama":"'.$key['nama'].'",';
-                                $catch .= '"jenis_kue":"'.$key['jenis_kue'].'",';
-                                $catch .= '"gambar":"'.$key['gambar'].'",';
-                                $catch .= '"harga":"'.$key['harga'].'",';
-                                $catch .= '"quantity":"'.$key['quantity'].'"';
-                                $catch .= '}';
-                                $x++;
+                                // $catch .= '{';
+                                // $catch .= '"id":"'.$key['id'].'",';
+                                // $catch .= '"nama":"'.$key['nama'].'",';
+                                // $catch .= '"jenis_kue":"'.$key['jenis_kue'].'",';
+                                // $catch .= '"gambar":"'.$key['gambar'].'",';
+                                // $catch .= '"harga":"'.$key['harga'].'",';
+                                // $catch .= '"quantity":"'.$key['quantity'].'"';
+                                // $catch .= '}';
+                                // $x++;
 
                                 echo '<div class="col-md-12 col-sm-12 col-xs-12">';
                                 echo '<div class="col-md-2 col-sm-2 col-xs-6">';

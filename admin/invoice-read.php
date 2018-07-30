@@ -45,7 +45,7 @@ if($record_num > 0)
                 echo '<td class="text-info">'.'Menunggu Pembayaran'.'</td>';
             }
             else if($status_payment == 0 && strtotime(date('Y-m-d G:i:s')) >= strtotime("$payment_expired_at")){
-                echo '<td class="text-danger">'.'Dibatalkan'.'</td>';
+                echo '<td class="text-danger">'.'Invoice Dibatalkan'.'</td>';
             }
             echo '</tr>';
         $i++;

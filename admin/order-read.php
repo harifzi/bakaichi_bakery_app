@@ -8,12 +8,13 @@ $database = new Database();
 $db = $database->getConnection();
  
 $order = new OrderItem($db);
- 
+
 $total_rows=$order->countAll(); 
  
 $stmt = $order->readAll($from_record_num, $records_per_page);
 $record_num = $stmt->rowCount();
  
+$page_url = "order-read.php?";
 if($record_num > 0)
 {
     // Read Invoice
@@ -38,49 +39,60 @@ if($record_num > 0)
             echo '</tr>';
         $i++;
 
-    } 
-    
+        // var_dump($row);
+        $catch[] = array(
+            "order_item_id" => $order_item_id,
+            "order_id" => $order_id,
+            "nama_kue" => $nama_kue,
+            "total_order" => $total_order,
+            "order_created_at" =>  $order_created_at
+            // "order_created_at" =>  date("M",strtotime($order_created_at))
+        );
+
+    }
+
+    $catch = '{"record_of_order":' . json_encode($catch) . '}';
+     
     echo '</table>';
     echo '</div><br/><br/><br/><br/><br/><br/><br/><br/>';
 
     // Pagination
-        echo '<center><ul class="pagination pagination">';
-       
-        if($page > 1)
-        {
-            $previous_page = $page-1;
-            echo '<li><a href="javascript::void();" page-num="{$previous_page}">&lt;</li>';
+        echo '<center><ul class="pagination pagination" id="pagination">';
+ 
+        if($page > 1){
+            echo '<li page="1"><a> First Page </li>';
         }
-
-        $total_pages = ceil($total_rows/$records_per_page);
-        $range = 1;
-
+         
+        $total_pages = ceil($total_rows / $records_per_page);
+        $range = 2;
+         
         $initial_num = $page - $range;
-        $condition_limit_num = ($page+$range)+1;
-
-        for($x = $initial_num; $x < $condition_limit_num; $x++)
-        {
-            if (($x > 0) && ($x <= $total_pages))
-            {
-                if ($x == $page)
-                {
-                    echo '<li><a href="javascript::void();">'."{$x}".'</li>';
+        $condition_limit_num = ($page + $range)  + 1;
+         
+        for ($x=$initial_num; $x<$condition_limit_num; $x++) {
+         
+            if (($x > 0) && ($x <= $total_pages)) {
+         
+                if ($x == $page) {
+                    echo '<li class="active"><a> '.$x.' <span class="sr-only">(current)</span></a></li>';
                 }
-
-                else 
-                {
-                    echo '<li><a href="javascript::void();" page-num='."{$x}".'>'."{$x}".'</li>';
+                else {
+                    echo '<li page="'.$x.'"><a> '.$x.' </a></li>';
                 }
             }
         }
-
-        if ($page < $total_pages)
-        {
-            $next_page = $page + 1;
-            echo '<li><a href="javascript::void();" page-num='."{$next_page}".'>&gt;</li>';
+         
+        if($page < $total_pages){
+            echo '<li page="'.$total_pages.'"><a> Last Page </a></li>';
         }
+         
+        echo "</ul>";
 
-        echo '</center></ul>';
+        echo '<script type="text/javascript">';
+        echo 'var getrecords=';
+        print_r($catch);
+        echo ';';
+        echo '</script>';
 
 }
  

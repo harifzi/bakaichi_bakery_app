@@ -19,7 +19,7 @@ if($record_num > 0)
     // Read Invoice
     echo '<div class="content table-responsive table-full-width">';
     echo '<table class="table table-hover table-striped">';
-    echo '<thead><th>#</th><th>Nama</th><th>Alamat</th><th>Kontak</th><th>Kurir</th><th>Status</th><th></th>
+    echo '<thead><th>#</th><th>Nama</th><th>Alamat</th><th>Kontak</th><th>Tanggal</th><th>Kurir</th><th>Status</th>
             </thead>';
     echo '<tbody>';
     
@@ -33,6 +33,7 @@ if($record_num > 0)
             echo '<td>'."{$nama_depan}"." "."{$nama_belakang}".'</td>';
             echo '<td>'."{$alamat}"." "."<br/>Kodepos: {$kode_pos}".'</td>';
             echo '<td>'."Telepon: {$telepon}<br/> Email: {$email}".'</td>';
+            echo '<td>'."{$order_created_at}".'</td>';
             echo '<td>'."{$kurir}".'</td>';
             // echo '<td>'."{$invoice_created_at}".'</td>';
             if($status_payment == 1 && $status_shipping == 1){
@@ -40,7 +41,7 @@ if($record_num > 0)
             }
             else if($status_payment == 1 && $status_shipping == 0) {
                 echo '<td class="text-danger">'.'Lakukan Pengiriman'.'</td>';
-                echo '<td><button type="button" class="btn btn-primary" id="edit"><i class="fa fa-edit"></i></button></td>';
+                // echo '<td><button type="button" class="btn btn-primary" id="edit"><i class="fa fa-edit"></i></button></td>';
             }
             else if($status_payment == 0 && strtotime(date('Y-m-d G:i:s')) < strtotime($payment_expired_at))
             {

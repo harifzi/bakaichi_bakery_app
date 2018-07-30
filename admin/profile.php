@@ -6,7 +6,11 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
+
 $user->AdminAuth();
+
+$user->user_id=$_SESSION["session_bakaichi_bakery"];
+$user->readOne();
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,13 +72,13 @@ $user->AdminAuth();
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                                <input type="text" class="form-control" placeholder="Username" value="<?php echo htmlspecialchars($user->username, ENT_QUOTES);?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" placeholder="Email">
+                                                <input type="email" class="form-control" placeholder="Email" value="<?php echo htmlspecialchars($user->email, ENT_QUOTES);?>">
                                             </div>
                                         </div>
                                     </div>
@@ -83,13 +87,13 @@ $user->AdminAuth();
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                                <input type="text" class="form-control" placeholder="Company" value="<?php echo htmlspecialchars($user->nama_depan, ENT_QUOTES);?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                                <input type="text" class="form-control" placeholder="Last Name" value="<?php echo htmlspecialchars($user->nama_belakang, ENT_QUOTES);?>">
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +102,7 @@ $user->AdminAuth();
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                <input type="text" class="form-control" placeholder="Home Address" value="<?php echo htmlspecialchars($user->alamat, ENT_QUOTES);?>">
                                             </div>
                                         </div>
                                     </div>
@@ -119,20 +123,10 @@ $user->AdminAuth();
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Postal Code</label>
-                                                <input type="number" class="form-control" placeholder="ZIP Code">
+                                                <input type="number" class="form-control" placeholder="ZIP Code" value="<?php echo htmlspecialchars($user->kode_pos, ENT_QUOTES);?>">
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>About Me</label>
-                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                                     <div class="clearfix"></div>
                                 </form>
@@ -149,15 +143,11 @@ $user->AdminAuth();
                                      <a href="#">
                                     <img class="avatar border-gray" src="../assets/images/faces/face-3.jpg" alt="..."/>
 
-                                      <h4 class="title">Mike Andrew<br />
-                                         <small>michael24</small>
+                                      <h4 class="title"><?php echo htmlspecialchars($user->nama_depan, ENT_QUOTES); echo '&nbsp;'; echo htmlspecialchars($user->nama_belakang, ENT_QUOTES);?><br />
+                                         <small><?php echo htmlspecialchars($user->username, ENT_QUOTES);?></small>
                                       </h4>
                                     </a>
                                 </div>
-                                <p class="description text-center"> "Lamborghini Mercy <br>
-                                                    Your chick she so thirsty <br>
-                                                    I'm in that two seat Lambo"
-                                </p>
                             </div>
                             <hr>
                             <div class="text-center">

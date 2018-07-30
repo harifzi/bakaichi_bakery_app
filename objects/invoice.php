@@ -50,7 +50,7 @@ class Invoice{
                     invoice.invoice_id, invoice.invoice_created_at, user.nama_depan, user.nama_belakang, user.email, payment.total_payment, payment.status_payment, shipping.status_shipping, payment.payment_expired_at
                 FROM
                     ".$this->table_name."
-                INNER JOIN `3bakaichi_bakery_app`.user ON (invoice.user_id = user.user_id) INNER JOIN `3bakaichi_bakery_app`.order ON (order.invoice_id = invoice.invoice_id) AND (order.user_id = user.user_id) INNER JOIN `3bakaichi_bakery_app`.payment ON (payment.user_id = user.user_id) AND (order.payment_id = payment.payment_id) INNER JOIN `3bakaichi_bakery_app`.shipping ON (shipping.invoice_id = invoice.invoice_id) AND (shipping.order_id = order.order_id) LIMIT ?, ?";
+                INNER JOIN `3bakaichi_bakery_app`.user ON (invoice.user_id = user.user_id) INNER JOIN `3bakaichi_bakery_app`.order ON (order.invoice_id = invoice.invoice_id) AND (order.user_id = user.user_id) INNER JOIN `3bakaichi_bakery_app`.payment ON (payment.user_id = user.user_id) AND (order.payment_id = payment.payment_id) INNER JOIN `3bakaichi_bakery_app`.shipping ON (shipping.invoice_id = invoice.invoice_id) AND (shipping.order_id = order.order_id) ORDER BY invoice_created_at ASC LIMIT ?, ?";
 
         $stmt = $this->conn->prepare($query);
 

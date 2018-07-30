@@ -57,6 +57,17 @@ $user->AdminAuth();
                             <div class="header">
                                 <h4 class="title" id="page-title"></h4>
                             </div>
+
+                            <!-- <div class="content">
+                                <div id="chartHours" class="ct-chart"></div>
+                                <div class="footer">
+                                    <div class="legend">
+                                        <i class="fa fa-circle text-info"></i> Open
+                                        <i class="fa fa-circle text-danger"></i> Click
+                                        <i class="fa fa-circle text-warning"></i> Click Second Time
+                                    </div>
+                                </div>
+                            </div> -->
                             
                             <div class="content">    
                                 
@@ -94,5 +105,6 @@ $user->AdminAuth();
     <script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
     <script type="text/javascript" src="../assets/js/signout-post.js"></script>
-    <script src="../app/order-list.js"></script>
+    <script src="../app/order-list.js"></script> 
+    
 </html>

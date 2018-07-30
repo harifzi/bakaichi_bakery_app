@@ -61,6 +61,7 @@ function editShipping()
                         }
                     });
                 });
-    	}
+            });
+    	});
 	});
 }
