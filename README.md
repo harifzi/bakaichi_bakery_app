@@ -1,24 +1,13 @@
 # BAKAICHI BAKERY APP
 
-Database is available on dev directory [here](./dev/3bakaichi_bakery_app.sql)
+Database is available on dev directory [here](./dev)
 Make sure the database's name correct
 
 password:
 admin|admin123
 
-```
-/*
-	...
-	config/database.php
-
-
-    private $db_name = "3bakaichi_bakery_app";
-    ...
-*/
-```
-
 ### Feature
-- Basic Object Oriented Programming - PHP
+- Object Oriented Programming - PHP
 - Password Hashing
 - UUID (Md5+Uniqid)
 
