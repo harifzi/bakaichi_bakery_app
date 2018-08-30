@@ -10,6 +10,8 @@ class Kue{
     public $harga_kue;
     public $gambar_kue;
     public $deskripsi_kue;
+    public $kue_created_at;
+    public $kue_updated_at;
     
     public function __construct($db)
     {
@@ -17,27 +19,31 @@ class Kue{
     }
 
     // Create
-    public function create()
+    public function Create()
     {
 
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    jenis_kue_id=:jenis_kue_id, nama_kue=:nama_kue, harga_kue=:harga_kue, gambar_kue=:gambar_kue, deskripsi_kue=:deskripsi_kue";
+                    kue_id=:kue_id, jenis_kue_id=:jenis_kue_id, nama_kue=:nama_kue, harga_kue=:harga_kue, gambar_kue=:gambar_kue, deskripsi_kue=:deskripsi_kue, kue_updated_at=:kue_updated_at";
 
         $stmt = $this->conn->prepare($query);
 
+        $this->kue_id=htmlspecialchars(strip_tags($this->kue_id));
         $this->jenis_kue_id=htmlspecialchars(strip_tags($this->jenis_kue_id));
         $this->nama_kue=htmlspecialchars(strip_tags($this->nama_kue));
         $this->harga_kue=htmlspecialchars(strip_tags($this->harga_kue));
         $this->gambar_kue=htmlspecialchars(strip_tags($this->gambar_kue));
         $this->deskripsi_kue=htmlspecialchars(strip_tags($this->deskripsi_kue));
+        $this->kue_updated_at=htmlspecialchars(strip_tags($this->kue_updated_at));
 
+        $stmt->bindParam(":kue_id", $this->kue_id);
         $stmt->bindParam(":jenis_kue_id", $this->jenis_kue_id);
         $stmt->bindParam(":nama_kue", $this->nama_kue);
         $stmt->bindParam(":harga_kue", $this->harga_kue);
         $stmt->bindParam(":gambar_kue", $this->gambar_kue);
         $stmt->bindParam(":deskripsi_kue", $this->deskripsi_kue);
+        $stmt->bindParam(":kue_updated_at", $this->kue_updated_at);
         
         if($stmt->execute())
         {
@@ -77,7 +83,7 @@ class Kue{
     public function readOne()
     {
         $query = "SELECT
-                    kue.kue_id, kue.gambar_kue, kue.nama_kue, kue.harga_kue, kue.jenis_kue_id,jenis_kue.jenis_kue, kue.deskripsi_kue
+                    kue.kue_id, kue.gambar_kue, kue.nama_kue, kue.harga_kue, kue.jenis_kue_id,jenis_kue.jenis_kue, kue.deskripsi_kue, kue.kue_created_at
                 FROM
                     " . $this->table_name . "
                 INNER JOIN jenis_kue ON kue.jenis_kue_id = jenis_kue.jenis_kue_id WHERE
@@ -94,6 +100,7 @@ class Kue{
         $this->jenis_kue_id = $row['jenis_kue_id'];
         $this->jenis_kue = $row['jenis_kue'];
         $this->deskripsi_kue = $row['deskripsi_kue'];
+        $this->kue_created_at = $row['kue_created_at'];
     }
 
     // Update
@@ -103,7 +110,7 @@ class Kue{
         $query = "UPDATE
                     " . $this->table_name . "
                 SET
-                    jenis_kue_id=:jenis_kue_id, nama_kue=:nama_kue, harga_kue=:harga_kue, gambar_kue=:gambar_kue, deskripsi_kue=:deskripsi_kue
+                    jenis_kue_id=:jenis_kue_id, nama_kue=:nama_kue, harga_kue=:harga_kue, gambar_kue=:gambar_kue, deskripsi_kue=:deskripsi_kue, kue_updated_at=:kue_updated_at
                 WHERE
                     kue_id=:kue_id";
 
@@ -114,13 +121,15 @@ class Kue{
         $this->harga_kue=htmlspecialchars(strip_tags($this->harga_kue));
         $this->gambar_kue=htmlspecialchars(strip_tags($this->gambar_kue));
         $this->deskripsi_kue=htmlspecialchars(strip_tags($this->deskripsi_kue));
-
+        $this->kue_updated_at=htmlspecialchars(strip_tags($this->kue_updated_at));
+        
         $stmt->bindParam(":kue_id", $this->kue_id);
         $stmt->bindParam(":nama_kue", $this->nama_kue);
         $stmt->bindParam(":harga_kue", $this->harga_kue);
         $stmt->bindParam(":jenis_kue_id", $this->jenis_kue_id);
         $stmt->bindParam(":gambar_kue", $this->gambar_kue);
         $stmt->bindParam(":deskripsi_kue", $this->deskripsi_kue);
+        $stmt->bindParam(":kue_updated_at", $this->kue_updated_at);
 
         if($stmt->execute())
         {

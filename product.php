@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if(isset($_GET['kue']) & isset($_GET['detail']))
 {
 	$kue_id=$_GET['kue'];
@@ -63,7 +65,7 @@ $kue->readOne();
         <?php include('layouts/header.php'); ?>
         <!--End of Header -->
 
-        <section class="product">
+        <section class="content-white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft jump" data-wow-duration="2s">
@@ -77,7 +79,7 @@ $kue->readOne();
                             <p><?php echo htmlspecialchars($kue->deskripsi_kue, ENT_QUOTES); ?></p>
                             <div class="form-group">
                         		<label name="quantity">Quantity</label><br/>
-	                            <input type="number" name="quantity" min="1" class="quantity" value="1"/><br/>
+	                            <input type="number" name="quantity" min="1" class="form_quantity" value="1"/><br/>
 	                        </div>
 	                        <button type="button" class="btn btn-large btn-default" id="add_to_cart">Add to Cart</button>
                         </div>
@@ -111,8 +113,8 @@ $kue->readOne();
         <script type="text/javascript">
         $('#add_to_cart').click(function(){
             $nama='+<?php echo htmlspecialchars($kue->nama_kue, ENT_QUOTES); ?>+';
-            $id=<?php echo htmlspecialchars($kue->kue_id, ENT_QUOTES); ?>;
-        	var formData = {action: 'add',quantity: $('input[name="quantity"]').val(), kue_id: <?php echo htmlspecialchars($kue->kue_id, ENT_QUOTES); ?>};
+            $id='<?php echo htmlspecialchars($kue->kue_id, ENT_QUOTES); ?>';
+        	var formData = {action: 'add',quantity: $('input[name="quantity"]').val(), kue_id: '<?php echo htmlspecialchars($kue->kue_id, ENT_QUOTES); ?>'};
         	$.ajax({
         		type: 'POST', 
 			    url: 'cart-post.php', 

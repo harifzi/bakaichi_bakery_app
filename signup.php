@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -40,7 +43,7 @@
         <?php include('layouts/header.php'); ?>
         <!--End of Header Section -->
 
-        <section id="signup_section" class="signup">
+        <section id="signup_section" class="content-color form">
             <div class="container">
                 
                 <div class="row">                            
@@ -168,16 +171,8 @@
                 url: "signup-post.php",
                 data: formData,
                 dataType: "text",
-                complete: function(xhr) {
-                    if (xhr.readyState == 4) {
-                        if (xhr.status == 201) {
-                            // fine
-                        }
-                    } else {
-                        // error
-                    }
-                },
                 success: function(data){
+                    console.log(data);
                     window.location = "index.php";
                 },
                 error: function(exception) {

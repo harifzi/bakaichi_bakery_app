@@ -14,23 +14,21 @@ $user = new User($db);
 $stmt = $user->readAll();
 $record_num = $stmt->rowCount();
 
-$result="";
 $data="";
  
 if($record_num > 0)
 {
     	$x=1;
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $result = $row;
-        	extract($row);
+            extract($row);
  
 	        $data .= '{';
             $data .= '"id":"'  . $user_id . '",';
             $data .= '"nama_depan":"'   . $nama_depan . '",';
             $data .= '"nama_belakang":"'   . $nama_belakang . '",';
             $data .= '"telepon":"'   . $telepon . '",';
-            $data .= '"alamat":"'   . $alamat . '",';
-            $data .= '"kodepos":"' . $kode_pos . '"';
+            $data .= '"alamat":"'   . $alamat_val . '",';
+            $data .= '"kodepos":"' . $kodepos . '"';
 	        $data .= '}';
 	 
 	        $data .= $x<$record_num ? ',' : '';

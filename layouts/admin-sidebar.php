@@ -42,13 +42,19 @@
             <li>
                 <a href="invoice-list.php">
                     <i class="pe-7s-news-paper"></i>
-                    <p>Invoice List</p>
+                    <p>Invoices List</p>
                 </a>
             </li>
             <li>
-                <a href="shipping-list.php">
+                <a href="shipping-report.php">
                     <i class="pe-7s-box2"></i>
-                    <p>Shipping List</p>
+                    <p>Shipping Report</p>
+                </a>
+            </li>
+            <li>
+                <a href="payment-report.php">
+                    <i class="pe-7s-cash"></i>
+                    <p>Payment Report</p>
                 </a>
             </li>
         </ul>

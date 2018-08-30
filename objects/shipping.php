@@ -50,14 +50,14 @@ class Shipping{
         }     
     }
 
-    // Read All
     public function readAll($from_record_num, $records_per_page)
     {
         $query = "SELECT
-                    shipping.shipping_id, user.nama_depan, user.nama_belakang, user.alamat, user.kode_pos, user.email, user.telepon, kurir.kurir, order.invoice_id, kurir.biaya_kurir, shipping.status_shipping, payment.status_payment, order.order_created_at, payment.payment_expired_at
+                    shipping.shipping_id, user.nama_depan, user.nama_belakang, alamat.alamat_val, alamat.kodepos, user.email, user.telepon, kurir.kurir, order.invoice_id, kurir.biaya_kurir, shipping.status_shipping, payment.status_payment, order.order_created_at, payment.payment_expired_at
                 FROM
                     ".$this->table_name."
-                    INNER JOIN `3bakaichi_bakery_app`.order ON (shipping.order_id = order.order_id) INNER JOIN `3bakaichi_bakery_app`.user ON (order.user_id = user.user_id) INNER JOIN `3bakaichi_bakery_app`.kurir ON (shipping.kurir_id = kurir.kurir_id) INNER JOIN `3bakaichi_bakery_app`.payment ON (payment.user_id = user.user_id) AND (order.payment_id = payment.payment_id) ORDER BY order_created_at ASC LIMIT ?, ?";
+                INNER JOIN `order` ON (shipping.order_id = `order`.order_id) INNER JOIN user ON (`order`.user_id = user.user_id) INNER JOIN alamat ON (alamat.user_id = user.user_id) AND (alamat.alamat_id = `order`.alamat_id) INNER JOIN kurir ON (shipping.kurir_id = kurir.kurir_id) INNER JOIN payment ON (payment.user_id = user.user_id) AND (`order`.payment_id = payment.payment_id) ORDER BY
+                order_created_at DESC, status_shipping ASC, status_payment DESC LIMIT ?, ?";
 
         $stmt = $this->conn->prepare($query);
 
@@ -69,14 +69,34 @@ class Shipping{
         return $stmt;   
     }
 
-    // ReadOne
+    public function shippingReady($from_record_num, $records_per_page)
+    {
+        $query = "SELECT
+                    shipping.shipping_id, user.nama_depan, user.nama_belakang, alamat.alamat_val, alamat.kodepos, user.email, user.telepon, kurir.kurir, order.invoice_id, kurir.biaya_kurir, shipping.status_shipping, payment.status_payment, order.order_created_at, payment.payment_expired_at
+                FROM
+                    ".$this->table_name."
+                INNER JOIN `order` ON (shipping.order_id = `order`.order_id) INNER JOIN user ON (`order`.user_id = user.user_id) INNER JOIN alamat ON (alamat.user_id = user.user_id) AND (alamat.alamat_id = `order`.alamat_id) INNER JOIN kurir ON (shipping.kurir_id = kurir.kurir_id) INNER JOIN payment ON (payment.user_id = user.user_id) AND (`order`.payment_id = payment.payment_id) WHERE
+                status_payment = 1 AND status_shipping = 0 ORDER BY order_created_at DESC, status_shipping ASC, status_payment DESC
+                LIMIT
+                ?, ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $from_record_num, PDO::PARAM_INT);
+        $stmt->bindParam(2, $records_per_page, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt;   
+    }
+
     public function readOne()
     {
         $query = "SELECT
                     user.nama_depan, user.nama_belakang, user.alamat, user.kode_pos, user.email, user.telepon, kurir.kurir, order.invoice_id, kurir.biaya_kurir, shipping.status_shipping, payment.status_payment, order.order_created_at, payment.payment_expired_at
                 FROM
                     ".$this->table_name."
-                INNER JOIN `3bakaichi_bakery_app`.order ON (shipping.order_id = order.order_id) INNER JOIN `3bakaichi_bakery_app`.user ON (order.user_id = user.user_id) INNER JOIN `3bakaichi_bakery_app`.kurir ON (shipping.kurir_id = kurir.kurir_id) INNER JOIN `3bakaichi_bakery_app`.payment ON (payment.user_id = user.user_id) AND (order.payment_id = payment.payment_id) WHERE
+                INNER JOIN `order` ON (shipping.order_id = order.order_id) INNER JOIN user ON (order.user_id = user.user_id) INNER JOIN kurir ON (shipping.kurir_id = kurir.kurir_id) INNER JOIN payment ON (payment.user_id = user.user_id) AND (order.payment_id = payment.payment_id) WHERE
                     shipping_id=".$this->shipping_id."
                 LIMIT
                     0,1";
@@ -100,7 +120,6 @@ class Shipping{
         $this->payment_expired_at = $row['payment_expired_at'];
     }
 
-    // Count All
     public function countAll()
     {
         $query = "SELECT COUNT(*) as total_rows FROM " . $this->table_name . "";
@@ -110,6 +129,29 @@ class Shipping{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
      
         return $row['total_rows'];
+    }
+
+    public function verifyStatus()
+    {
+        $query = "UPDATE
+                    " . $this->table_name . "
+                SET
+                    status_shipping = ?
+                WHERE
+                    shipping_id = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $this->status_shipping,PDO::PARAM_INT);        
+        $stmt->bindParam(2, $this->shipping_id,PDO::PARAM_STR);        
+        if($stmt->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }     
     }
 }    
 ?>

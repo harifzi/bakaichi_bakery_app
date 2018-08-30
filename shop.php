@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -82,12 +85,12 @@
         </section>
         <!-- End of Banner Section -->
 
-        <section id="products_section" class="products">
+        <section id="products_section" class="content-white">
             <div class="container">
                 <div class="row">	
 					<div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="head_title wow fadeInLeft"  data-wow-duration="2s">
-                            <p>Sort By:<select style="border:none">
+                            <p>Sort By:<select style="border:none;">
                                 <option value="0">Newest Product</option>
                                 <option value="1">Low Budget</option>
                             </select></p>
@@ -97,7 +100,7 @@
                 </div>
             </div>
 			
-			<div class="main_products_content text-center">
+			<div class="main_content text-center">
 				<div id="main_products"></div>
                 
                 <div class="col-sm-12 col-md-12 col-xs-12">
@@ -137,7 +140,7 @@
             success: function (data) { 
                 var getrecords = data['record_of_products'];
                 for($i in getrecords) {
-                    $('#main_products').append('<div product="'+getrecords[$i].id+'" class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s"><div class="single_product">'+'<a href="product.php?kue='+getrecords[$i].id+'&detail='+getrecords[$i].nama+'"><img src="'+getrecords[$i].gambar+'" alt="" /></a>'+'<div class="product_detail">'+getrecords[$i].nama+'<br/>Price: RP '+getrecords[$i].harga+'<br/></div>'+'</div></div>');
+                    $('#main_products').append('<div product="'+getrecords[$i].id+'" class="content_single_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s"><div class="single_product">'+'<a href="product.php?kue='+getrecords[$i].id+'&detail='+getrecords[$i].nama+'"><img src="'+getrecords[$i].gambar+'" alt="" /></a>'+'<div class="product_detail">'+getrecords[$i].nama+'<br/>Price: RP '+getrecords[$i].harga+'<br/></div>'+'</div></div>');
                 }
             }
         });

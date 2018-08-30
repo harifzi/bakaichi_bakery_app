@@ -3,8 +3,9 @@ include_once '../config/database.php';
 include_once '../objects/user.php';
 
 $database = new Database();
+$database->getTimestamp();
 $db = $database->getConnection();
-
+ 
 $user = new User($db);
 $user->AdminAuth();
 ?>
@@ -66,9 +67,7 @@ $user->AdminAuth();
                             <div class="content">    
                                 
                                 <div id="page-content"></div>
-                                <div id="form"></div>                                
-                                <br/><hr/><br/>
-
+                            
                             </div>
                         </div>
                     </div>

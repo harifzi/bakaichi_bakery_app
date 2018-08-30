@@ -69,15 +69,15 @@ $jenis_kue = new JenisKue($db);
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label class="btn btn-info btn-fill btn-file"> Browse <input type="file" id="picframe" name="gambar" style="display: none;"/> </label>
+                    <label class="btn btn-warning btn-fill btn-file"> Browse <input type="file" id="picframe" name="gambar" style="display: none;"/> </label>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-2">
-            <button type="button" class="btn btn-danger btn-fill btn-file" id="back-button">&lt;</button>
-            <input type="submit" class="btn btn-info btn-fill btn-file" value="Create" />
+            <button type="button" class="btn btn-danger btn-fill" id="back-button">&lt;</button>
+            <input type="submit" class="btn btn-warning btn-fill" value="CREATE" />
         </div>
     </div>
 </form>

@@ -57,7 +57,7 @@ if($record_num > 0)
     echo '</div><br/><br/><br/><br/><br/><br/><br/><br/>';
 
     // Pagination
-        echo '<center><ul class="pagination pagination" id="pagination">';
+        echo '<center><ul class="pagination pagination" id="pagination" style="cursor: pointer;">';
  
         if($page > 1){
             echo '<li page="1"><a> First Page </li>';
@@ -98,7 +98,10 @@ if($record_num > 0)
  
 else
 {
+    echo '<br/><br/>';
+    echo '<div class="content">';
     echo "<div class='alert alert-danger'>No records found.</div>";
-    echo '<br/><br/><br/><br/><br/><br/>';
+    echo '</div>';
+    echo '<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>';
 }
 ?>

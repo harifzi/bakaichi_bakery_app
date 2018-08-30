@@ -15,7 +15,7 @@ class Payment{
         $this->conn = $db;
     }
 
-     // Create
+    // Create
     public function Create()
     {
         $query = "INSERT INTO
@@ -39,12 +39,33 @@ class Payment{
         
         if($stmt->execute())
         {
-            echo '(:';
             return true;
         }
         else
         {
-            echo '):';
+            return false;
+        }     
+    }
+
+    public function verifyStatus()
+    {
+        $query = "UPDATE
+                    " . $this->table_name . "
+                SET
+                    status_payment = ?
+                WHERE
+                    payment_id = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $this->status_payment,PDO::PARAM_INT);        
+        $stmt->bindParam(2, $this->payment_id,PDO::PARAM_STR);        
+        if($stmt->execute())
+        {
+            return true;
+        }
+        else
+        {
             return false;
         }     
     }

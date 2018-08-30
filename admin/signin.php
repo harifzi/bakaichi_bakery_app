@@ -71,8 +71,8 @@ if(isset($_SESSION['session_bakaichi_bakery_level']))
     <script src="../assets/js/icheck.min.js" type="text/javascript"></script>
     <script src="../assets/js/admin-signin-main.js" type="text/javascript"></script>
     <script type="text/javascript">
-    $('#form_signin').submit(function(){
-        event.preventDefault();
+    $('#form_signin').submit(function(e){
+        e.preventDefault();
         var formData = $('#form_signin').serialize();
         $.ajax({
             type: "POST",

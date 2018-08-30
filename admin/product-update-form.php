@@ -23,7 +23,6 @@ $kue->kue_id = $product_id;
 $kue->readOne();
 ?>
 
-<!-- Create: Product -->
 <form id="update-product" method="post" enctype="multipart/form-data" border='0'>
     <div class="row">
         <div class="col-md-8">
@@ -46,7 +45,7 @@ $kue->readOne();
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Jenis Kue</label>
+                        <label for="jeniskue">Jenis Kue</label>
                        
                         <?php
                         // Jenis Kue
@@ -91,8 +90,8 @@ $kue->readOne();
     </div>
     <div class="row">
         <div class="col-md-2">
-            <button type="button" class="btn btn-danger btn-fill btn-file" id="back-button">&lt;</button>
-            <input type="submit" class="btn btn-info btn-fill btn-file" value="Update" />
+            <button type="button" class="btn btn-danger btn-fill" id="back-button">&lt;</button>
+            <input type="submit" class="btn btn-info btn-fill" value="Update" />
         </div>
     </div>
 </form>

@@ -5,7 +5,7 @@ function showProducts(page)
 {
  
     $('#page-title').html('Read Products');
-    $('#page-title').append('&nbsp; <button type="button" class="btn btn btn-info btn-fill" id="create-product">Create</button></div>');
+    $('#page-title').append('&nbsp; <button type="button" class="btn btn-warning btn-fill" id="create-product">CREATE NEW PRODUCT</button></div>');
     
     $('#page-content').fadeOut('slow', function()
     {
@@ -99,22 +99,10 @@ function createProduct()
                         cache:false,
                         contentType: false,
                         processData: false,
-                        complete: function(xhr) {
-                            if (xhr.readyState == 4) {
-                                if (xhr.status == 201) {
-                                    $('#page-content').fadeOut('slow', function(){ 
-                                        showProducts(1);
-                                    });
-                                }
-                            } else {
-                                // error
-                            }
-                        },
                         success: function(data){
                             $('#page-content').fadeOut('slow', function(){ 
                                 showProducts(1);
                             });
-                            // console.log(data);
                         },
                         error: function(exception) {
                             console.log(exception);
@@ -181,22 +169,11 @@ function editProduct()
                         cache: false,
                         contentType: false,
                         processData: false,
-                        complete: function(xhr) {
-                            if (xhr.readyState == 4) {
-                                if (xhr.status == 201) {
-                                    $('#page-content').fadeOut('slow', function(){ 
-                                        showProducts(1);
-                                    });
-                                }
-                            } else {
-                                // error
-                            }
-                        },
                         success : function(data){
                             $('#page-content').fadeOut('slow', function(){ 
                                 showProducts(1);
                             });
-                            // console.log(data);
+                            console.log(data);
                         },
                         error: function(exception) {
                             console.log(exception);

@@ -7,7 +7,6 @@ $db = $database->getConnection();
 
 $user = new User($db);
 $user->AdminAuth();
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -55,7 +54,7 @@ $user->AdminAuth();
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title" id="page-title"></h4>
+                                <h4 class="pull-left title" id="page-title"></h4>
                             </div>
                             
                             <div class="content">    
@@ -95,5 +94,5 @@ $user->AdminAuth();
 
     <!-- Light Bootstrap Table main -->
     <script type="text/javascript" src="../assets/js/signout-post.js"></script>
-    <script src="../app/invoice-list.js"></script>
+    <script src="../app/invoice-report.js"></script>
 </html>

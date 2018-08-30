@@ -30,7 +30,7 @@ class User{
 		$query = "INSERT INTO
 					".$this->table_name."
 				SET
-					user_id=:user_id,username=:username,email=:email,password=:password,nama_depan=:nama_depan,nama_belakang=:nama_belakang,role=:role,telepon=:telepon,alamat=:alamat,kode_pos=:kode_pos";
+					user_id=:user_id, username=:username, email=:email, password=:password, nama_depan=:nama_depan, nama_belakang=:nama_belakang, role=:role, telepon=:telepon, user_updated_at=:user_updated_at";
 
 		$stmt = $this->conn->prepare($query);
 
@@ -41,9 +41,8 @@ class User{
 		$this->nama_belakang=htmlspecialchars(strip_tags($this->nama_belakang));
 		$this->telepon=htmlspecialchars(strip_tags($this->telepon));
         $this->role=htmlspecialchars(strip_tags($this->role));
-        $this->alamat=htmlspecialchars(strip_tags($this->alamat));
-		$this->kode_pos=htmlspecialchars(strip_tags($this->kode_pos));
-
+        $this->user_updated_at=htmlspecialchars(strip_tags($this->user_updated_at));
+        
 		$stmt->bindParam(":user_id",$this->user_id);
         $stmt->bindParam(":username",$this->username);
 		$stmt->bindParam(":email",$this->email);
@@ -52,15 +51,15 @@ class User{
         $stmt->bindParam(":nama_belakang",$this->nama_belakang);
         $stmt->bindParam(":telepon",$this->telepon);
         $stmt->bindParam(":role",$this->role);
-        $stmt->bindParam(":alamat",$this->alamat);
-        $stmt->bindParam(":kode_pos",$this->kode_pos);
-
+        $stmt->bindParam(":user_updated_at",$this->user_updated_at);
+        
         if($stmt->execute())
         {
             return true;
         }
         else
         {
+            // printf("Error: %s.\n", $stmt->error);
             return false;
         }
     }
@@ -84,11 +83,6 @@ class User{
                 session_start();
                 $_SESSION['session_bakaichi_bakery'] = $row['user_id'];
                 $_SESSION['session_bakaichi_bakery_level'] = $row['role'];
-                $user_ip=$_SERVER['REMOTE_ADDR'];
-                $logfile = fopen("signin-log.txt","a+") or die("Unable to open file!");
-                $txt = ":SignedIn => ".date('Y-m-d/G:i:s')."\n".":RemoteAdress => ".$user_ip."\n".":UserID =>".$row['user_id']."\n\n";
-                fwrite($logfile, $txt);
-                fclose($logfile);
                 return true;
             }
             else
@@ -167,7 +161,7 @@ class User{
     public function readOne()
     {
         $query = "SELECT
-                    user.user_id, user.username, user.nama_depan, user.email, user.nama_belakang, user.telepon, user.alamat, user.kode_pos
+                    user_id, username, nama_depan, email, nama_belakang, telepon
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -177,7 +171,7 @@ class User{
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->user_id);
         $stmt->execute();
-        
+
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $this->user_id = $row['user_id'];
         $this->username = $row['username'];
@@ -185,16 +179,13 @@ class User{
         $this->nama_belakang = $row['nama_belakang'];
         $this->email = $row['email'];
         $this->telepon = $row['telepon'];
-        $this->alamat = $row['alamat'];
-        $this->kode_pos = $row['kode_pos'];
     }
     
     // Read All
     public function readAll()
     {
-
         $query = "SELECT
-                    user.user_id, user.nama_depan, user.nama_belakang, user.telepon, user.alamat, user.kode_pos
+                    user_id, nama_depan, nama_belakang, telepon
                 FROM
                     " . $this->table_name . "
                 ORDER BY

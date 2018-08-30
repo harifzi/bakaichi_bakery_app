@@ -13,7 +13,7 @@ class Kurir{
         $this->conn = $db;
     }
 
-    function read()
+    public function readAll()
     {
         $query = "SELECT
                     kurir_id, kurir, biaya_kurir
@@ -22,7 +22,7 @@ class Kurir{
                 ORDER BY
                     kurir_id";
 
-        $stmt = $this->conn->prepare( $query );
+        $stmt = $this->conn->prepare($query);
         $stmt->execute();
         
         return $stmt;

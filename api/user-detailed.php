@@ -19,9 +19,10 @@ $user_arr[] = array(
     "id" =>  $user->user_id,
     "nama_depan" => $user->nama_depan,
     "nama_belakang" => $user->nama_belakang,
+    "email" => $user->email,
     "telepon" => $user->telepon,
     "alamat" => $user->alamat,
-    "kode_pos" => $user->kode_pos
+    "kodepos" => $user->kode_pos
 );
 
 print_r('{"record_of_user":'.json_encode($user_arr).'}');

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -51,7 +54,7 @@
         </section>
         <!-- End of Banner Section -->
 
-        <section id="about" class="about">
+        <section id="about" class="content-white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="2s">
@@ -69,8 +72,8 @@
                 <div class="row">
                     <div class="main_about_content text-center">
                        <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="1.5s">
-                            <div class="single_about">
-                                <div class="single_about_img">
+                            <div class="single_content">
+                                <div class="single_content_img">
                                     <img src="assets/images/skil1.png" alt="" />
                                 </div>
                                 <h3><span class="statistic-counter">30.25</span>Curabitur</h3>
@@ -79,8 +82,8 @@
                         </div>
                         
                        <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="2s">
-                            <div class="single_about">
-                                <div class="single_about_img">
+                            <div class="single_content">
+                                <div class="single_content_img">
                                     <img src="assets/images/skil1.png" alt="" />
                                 </div>
                                 <h3><span class="statistic-counter">20.75</span>spanCurabitur</h3>
@@ -89,8 +92,8 @@
                         </div>
                         
                        <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="3s">
-                            <div class="single_about">
-                                <div class="single_about_img">
+                            <div class="single_content">
+                                <div class="single_content_img">
                                     <img src="assets/images/skil1.png" alt="" />
                                 </div>
                                 <h3><span class="statistic-counter">15.20</span>Curabitur</h3>

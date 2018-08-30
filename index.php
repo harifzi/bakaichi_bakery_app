@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -74,7 +77,7 @@
         </section>
         <!-- End of Banner Section -->
 
-        <section id="whatwedo_section" class="whatwedo">
+        <section id="whatwedo_section" class="content-white">
 		    <div class="container">
 		        <div class="row">
 					
@@ -94,8 +97,8 @@
 					<div class="main_whatwedo_content text-center">
 						
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="single_whatwedo wow fadeInDown"  data-wow-duration="1s">
-								<div class="single_whatwedo_img">
+							<div class="single_content wow fadeInDown"  data-wow-duration="1s">
+								<div class="single_content_img">
 									<img src="assets/images/parfait.png" alt="" />
 								</div>
 								<h3>Creative Cake Design</h3>
@@ -104,8 +107,8 @@
 						</div>
 						
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="single_whatwedo wow fadeInDown"  data-wow-duration="3s">
-								<div class="single_whatwedo_img">
+							<div class="single_content wow fadeInDown"  data-wow-duration="3s">
+								<div class="single_content_img">
 									<img src="assets/images/pudding.png" alt="" />
 								</div>
 								<h3>Amazing Cake</h3>
@@ -113,8 +116,8 @@
 						</div>
 						
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="single_whatwedo wow fadeInDown"  data-wow-duration="4s">
-								<div class="single_whatwedo_img">
+							<div class="single_content wow fadeInDown"  data-wow-duration="4s">
+								<div class="single_content_img">
 									<img src="assets/images/croissant.png" alt="" />
 								</div>
 								<h3>Delicious</h3>
@@ -122,8 +125,8 @@
 						</div>
 
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="single_whatwedo wow fadeInDown"  data-wow-duration="4s">
-								<div class="single_whatwedo_img">
+							<div class="single_content wow fadeInDown"  data-wow-duration="4s">
+								<div class="single_content_img">
 									<img src="assets/images/wheat.png" alt="" />
 								</div>
 								<h3>Healthy</h3>
@@ -131,8 +134,8 @@
 						</div>
 
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="single_whatwedo wow fadeInDown"  data-wow-duration="4s">
-								<div class="single_whatwedo_img">
+							<div class="single_content wow fadeInDown"  data-wow-duration="4s">
+								<div class="single_content_img">
 									<img src="assets/images/heart-box.png" alt="" />
 								</div>
 								<h3>Home Delivery</h3>
@@ -140,8 +143,8 @@
 						</div>
 
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="single_whatwedo wow fadeInDown"  data-wow-duration="4s">
-								<div class="single_whatwedo_img">
+							<div class="single_content wow fadeInDown"  data-wow-duration="4s">
+								<div class="single_content_img">
 									<img src="assets/images/calendar.png" alt="" />
 								</div>
 								<h3>On Date</h3>
@@ -154,7 +157,7 @@
 		</section>
 		<!-- End of What We Do Section -->
 
-		<section id="clientsaid_section" class="clientsaid">
+		<section id="clientsaid_section" class="content-color">
 			<div class="container">
 				<div class="row">
 
@@ -194,7 +197,7 @@
 		</section>
 		<!-- End of Client Said -->
 
-		<section id="newproducts_section" class="products">
+		<section id="newproducts_section" class="content-white">
             <div class="container">
                 <div class="row">	
 					<div class="col-md-offset-6 col-sm-offset-6 col-md-6 col-sm-6 col-xs-12">
@@ -247,7 +250,7 @@
 		    success: function (data) { 
 		    	var getrecords = data['record_of_products'];
 		    	for($i in getrecords) {
-				   	$('#main_products').append('<div class="single_product_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s"><div class="single_product">'+'<a href="shop.php"><img src="'+getrecords[$i].gambar+'" alt="" /></a>'+'<div class="product_detail">'+getrecords[$i].nama+'<br/>Price: RP '+getrecords[$i].harga+'<br/></div>'+'</div></div>');
+				   	$('#main_products').append('<div class="content_single_column col-md-3 col-sm-6 col-xs-12 wow fadeInLeft"  data-wow-duration="4s"><div class="single_content">'+'<a href="shop.php"><img src="'+getrecords[$i].gambar+'" alt="" /></a>'+'<div class="product_detail">'+getrecords[$i].nama+'<br/>Price: RP '+getrecords[$i].harga+'<br/></div>'+'</div></div>');
 				}
 		    }
 		});

@@ -3,7 +3,9 @@ include_once '../config/database.php';
 include_once '../objects/kue.php';
  
 $database = new Database();
+$database->getTimestamp();
 $db = $database->getConnection();
+
  
 $kue = new Kue($db);
 
@@ -34,12 +36,14 @@ if (isset($_FILES['gambar'])) {
                 
                 if (move_uploaded_file($pic_tmp, $pic_destination)) {
                     
+                    $kue->kue_id=md5(uniqid(rand(), true));
                     $kue->nama_kue=$_POST['nama_kue'];
                     $kue->harga_kue=$_POST['harga'];
                     $kue->jenis_kue_id=$_POST['jenis'];
                     $kue->deskripsi_kue=$_POST['deskripsi'];
                     $kue->gambar_kue=$pic_name_destination;
-                    $kue->create();
+                    $kue->kue_updated_at=date('Y-m-d h:i:s');
+                    $kue->Create();
                 }
                 else
                 {

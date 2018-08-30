@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -40,7 +43,7 @@
         <?php include('layouts/header.php'); ?>
         <!--End of Header -->
 
-        <section id="signin_section" class="signin">
+        <section id="signin_section" class="content-color form">
             <div class="container">
                 <div class="row">
                    
@@ -63,8 +66,8 @@
 
 							<div class="message_btn text-center">
                                 <div class="btn_bg">
-									<a id="submit" class="btn">Sign in</a>
-								</div>
+                                    <a id="submit" class="btn">Sign In</a>
+                                </div>
                                 <input type="submit" style="display: none;" />
 							</div>
 							<br/><br/><p class="text-center"><small>Not registered? <a href="signup.php">Create an account</a></small></p><br/><br/><br/><p class="text-center"><small>Copyright 2016 &copy; by <a href="https://bootstrapthemes.co">bootstrapthemes.co</a></small></p>

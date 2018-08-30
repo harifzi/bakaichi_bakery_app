@@ -21,7 +21,6 @@ $user->AdminAuth();
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -34,7 +33,9 @@ $user->AdminAuth();
     <!--     Fonts and icons     -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-    <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/vendor/Magnific-Popup/magnific-popup.css">
 
 </head>
 <body>
@@ -55,7 +56,7 @@ $user->AdminAuth();
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title" id="page-title"></h4>
+                                <h4 class="title pull-left" id="page-title"></h4>
                             </div>
                             
                             <div class="content">    
@@ -77,7 +78,6 @@ $user->AdminAuth();
     </div>
 </div>
 
-
 </body>
 
     <!--   Core JS Files   -->
@@ -95,5 +95,8 @@ $user->AdminAuth();
 
     <!-- Light Bootstrap Table main -->
     <script type="text/javascript" src="../assets/js/signout-post.js"></script>
-    <script src="../app/shipping-list.js"></script>
+    <script src="../app/payment-report.js"></script>
+
+    <!-- Magnific Popup core JS file -->
+    <script src="../assets/vendor/Magnific-Popup/jquery.magnific-popup.js"></script>
 </html>

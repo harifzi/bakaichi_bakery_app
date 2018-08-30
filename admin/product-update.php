@@ -3,8 +3,9 @@ include_once '../config/database.php';
 include_once '../objects/kue.php';
  
 $database = new Database();
+$database->getTimestamp();
 $db = $database->getConnection();
- 
+
 $kue = new Kue($db);
 
 $pic = $_FILES['gambar'];
@@ -43,6 +44,9 @@ if($pic['name'] != NULL && $pic['tmp_name'] != NULL && $pic['size'] != NULL && $
 	                $kue->jenis_kue_id=$_POST['jenis'];
 	                $kue->deskripsi_kue=$_POST['deskripsi'];
 	                $kue->kue_id=$_POST['kue_id'];
+	                $kue->kue_created_at=$_POST["created_at"];
+	                var_dump($_POST);
+	                $kue->kue_updated_at=date('m/d/Y h:i:s');
     				$kue->update();
 	            }
 	            else
@@ -74,6 +78,7 @@ else
     $kue->jenis_kue_id=$_POST['jenis'];
     $kue->deskripsi_kue=$_POST['deskripsi'];
 	$kue->gambar_kue=$pic_name_destination;
+    $kue->kue_updated_at=date('Y-m-d h:i:s');
     $kue->update();
 }
 ?>

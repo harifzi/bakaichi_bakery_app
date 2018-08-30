@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once 'checkout-get.php';
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -51,7 +55,7 @@
         </section>
         <!-- End of Banner Section -->
 
-        <section class="checkout_section" user="<?php print_r($_SESSION["session_bakaichi_bakery"]);?>">
+        <section class="checkout_section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-duration="2s">
@@ -62,7 +66,13 @@
                             <form>
                                 <label for=""><strong>Shipping Adress</strong></label>
                                 <div class="form-group">
-                                    <textarea id="shipping_adress" class="form-control" rows="4" placeholder="Fill your shipping adress" readonly></textarea><br/>
+                                    <select style="border:none" name="alamat">
+                                        <?php
+                                        foreach ($alamat_user_arr as $key) {
+                                            echo '<option value="'.$key["id"].'" alamat="'.$key["alamat"].'" kodepos="'.$key["kodepos"].'">'.$key["alamat"].', '.$key["kodepos"].'</option>';
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                                 <label for=""><strong>Note</strong></label>
                                 <div class="form-group">
@@ -70,7 +80,15 @@
                                 </div>
                                 <div class="form-group">
                                     <p><strong>Shipping Service</strong></p>
-                                    <div id="kurir_radio"></div>
+                                    <?php
+                                    foreach ($kurir_arr as $key) {
+                                        echo '<div class="radio">';
+                                        echo '<label><input type="radio" name="kurir" kurir="'.$key["kurir"].'" value="'.$key["id"].'" biaya="'.intval($key["biaya"]).'"/>
+                                        <strong style="font-size: 20px;">'.$key["kurir"].'</strong> <br/> Rp. '.intval($key["biaya"]).'</label>';
+                                        echo '</div';
+                                    }
+                                    ?>
+                                    </div>                                        
                                 </div>
                             </form>
                         </div>
@@ -85,17 +103,6 @@
                             $cek = $_SESSION["bakaichi_cart_item"];
                             foreach ($_SESSION["bakaichi_cart_item"] as $key)
                             {
-                                // variable catch
-                                // $catch .= '{';
-                                // $catch .= '"id":"'.$key['id'].'",';
-                                // $catch .= '"nama":"'.$key['nama'].'",';
-                                // $catch .= '"jenis_kue":"'.$key['jenis_kue'].'",';
-                                // $catch .= '"gambar":"'.$key['gambar'].'",';
-                                // $catch .= '"harga":"'.$key['harga'].'",';
-                                // $catch .= '"quantity":"'.$key['quantity'].'"';
-                                // $catch .= '}';
-                                // $x++;
-
                                 echo '<div class="col-md-12 col-sm-12 col-xs-12">';
                                 echo '<div class="col-md-2 col-sm-2 col-xs-6">';
                                 echo '<img src="'.$key['gambar'].'" style="max-width:70px;max-height:70px;"/>';
@@ -131,14 +138,13 @@
 
                                 <span class="pull-right">
                                     <img src="assets/images/logo-hed-1.png" style="max-width:100px;max-height:100px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <img src="https://seeklogo.com/images/T/Tiki_JNE-logo-09BD368D04-seeklogo.com.png" style="max-width:100px;max-height:100px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <img src="https://upload.wikimedia.org/wikipedia/id/thumb/0/00/Pos-Indonesia.svg/320px-Pos-Indonesia.svg.png" style="max-width:100px;max-height:100px;"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <img src="https://i2.wp.com/www.keestore.com/wp-content/uploads/2018/05/go-send-by-go-jek-logo.png?ssl=1" style="max-width:100px;max-height:100px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
                                 </span>
                             </div>
                         </div>
                         
                         <div class="pull-right">
-                            <br/><br/><button type="button" id="jump_button" class="pull-right btn btn-default">Next</button>
+                            <br/><br/><button type="button" id="confirmed" class="pull-right btn btn-default">Next</button>
                         </div>
                         </div>
                         <!-- shipping_information -->
@@ -152,22 +158,22 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <p><strong>Client</strong></p>
-                                <p>Order Date: <span class="pull-right order_date">24 July 2018 10:16:52</span></p>
-                                <p>Client ID: <span class="pull-right user_id">0c5ea8d884533461731461caed5e38a4</span></p>
-                                <p>Name: <span class="pull-right user_id">Erwin Santoso</span></p>
-                                <p>Status: <span class="pull-right status"><b>Awaiting Payment</b></span></p>
-                                <p>Email: <span class="pull-right status"><b>erwindanjo@gmail.com</b></span></p><br/><br/>
+                                <p>Order Date: <span class="pull-right"><?php echo date("d-m-Y h:i:s");?></span></p>
+                                <p>Client ID: <span class="pull-right user_id"><?php echo $_SESSION["session_bakaichi_bakery"]?></span></p>
+                                <p>Name: <span class="pull-right"><?php echo $user_arr[0]["nama_depan"].' '.$user_arr[0]["nama_belakang"];?></span></p>
+                                <p>Status: <span class="pull-right"><b>Awaiting Payment</b></span></p>
+                                <p>Email: <span class="pull-right"><b><?php echo $user_arr[0]["email"];?></b></span></p><br/><br/>
 
                                 <p><strong>Ship To</strong></p>
-                                <p>Name: <span class="pull-right user_id">Erwin Santoso</span></p>
-                                <p>Alamat: <span class="pull-right order_date">Jl. Sukorejo Indramayu / 12</span></p>
-                                <p>Kodepos: <span class="pull-right user_id">60534</span></p>
-                                <p>Shipping Service: <span class="pull-right status">JNE</span></p><br/><br/>
+                                <p>Name: <span class="pull-right"><?php echo $user_arr[0]["nama_depan"].' '.$user_arr[0]["nama_belakang"];?></span></p>
+                                <p>Alamat: <span class="pull-right address"></span></p>
+                                <p>Kodepos: <span class="pull-right kodepos"></span></p>
+                                <p>Shipping Service: <span class="pull-right kurir_service"></span></p><br/><br/>
                             </div>
                         </div>
 
                         <div class="col-md-12 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-duration="2s">
-                            <h4>INVOICE: INV0c5ea8d884533461731461caed5e38a4</h4>
+                            <h4>INVOICE: <br/><span class="invoice_id"><?php print_r("inv".md5(uniqid(rand(), true)).md5(uniqid(rand(), true)));?></span></h4><br/>
                             <?php
                             $total_belanja=0;
                             $cart_counter=0;
@@ -221,6 +227,7 @@
         <script src="assets/js/main.js"></script>
         <script type="text/javascript" src="assets/js/signout-post.js"></script>
         <script type="text/javascript">
+            $('input[value="<?php echo $kurir_arr[0]["id"]; ?>"]').prop("checked", true);
             $catch = <?php print_r($catch);?>;
         </script>
         <script type="text/javascript" src="app/checkout.js"></script>

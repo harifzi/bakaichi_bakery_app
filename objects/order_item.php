@@ -51,7 +51,7 @@ class OrderItem{
                     order_item.order_item_id, order.invoice_id, order.order_id, kue.nama_kue, order_item.total_order, jenis_kue.jenis_kue, order.order_created_at, user.nama_depan, user.nama_belakang, user.email
                 FROM
                     ".$this->table_name."
-                INNER JOIN `3bakaichi_bakery_app`.order ON (order_item.order_id = order.order_id) INNER JOIN `3bakaichi_bakery_app`.kue ON (order_item.kue_id = kue.kue_id) INNER JOIN `3bakaichi_bakery_app`.jenis_kue ON (kue.jenis_kue_id = jenis_kue.jenis_kue_id) INNER JOIN `3bakaichi_bakery_app`.user ON (order.user_id = user.user_id) ORDER BY order.order_created_at LIMIT ?, ?";
+                INNER JOIN `order` ON (order_item.order_id = `order`.order_id) INNER JOIN kue ON (order_item.kue_id = kue.kue_id) INNER JOIN jenis_kue ON (kue.jenis_kue_id = jenis_kue.jenis_kue_id) INNER JOIN user ON (`order`.user_id = user.user_id) ORDER BY `order`.order_created_at LIMIT ?, ?";
 
         $stmt = $this->conn->prepare($query);
 
@@ -61,6 +61,25 @@ class OrderItem{
         $stmt->execute();
 
         return $stmt;   
+    }
+
+    public function readByOrder()
+    {
+        $query = "SELECT
+                    order_item.order_item_id, order.order_id, order.invoice_id, kue.nama_kue, kue.harga_kue, jenis_kue.jenis_kue, order_item.total_order, order.order_created_at
+                FROM
+                    " . $this->table_name . "
+                INNER JOIN `order` ON (order_item.order_id = `order`.order_id) INNER JOIN kue ON (order_item.kue_id = kue.kue_id) INNER JOIN jenis_kue ON (kue.jenis_kue_id = jenis_kue.jenis_kue_id) WHERE
+                    order_item.order_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->order_id);
+        
+        $stmt->execute();
+
+        return $stmt;
+        // $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        // print_r(json_encode($row));
+        // $this->deskripsi_kue = $row['deskripsi_kue'];
     }
 
     // Count All
