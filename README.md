@@ -1,13 +1,10 @@
-# BAKAICHI BAKERY APP
-
-E-commerce with php native oop. With invoice management, shipping management, cart session.
-
-### Feature
-- Object Oriented Programming - PHP
-- Password Hashing
-- UUID (Md5+Uniqid)
-- Jquery
-- Ajax
+### Introduce
+Bakaichi Bakery App is e-commerce pastry and bakery website, with features:
+- Invoice, shipping, payment management
+- Update profile admin
+- Session cart
+- Upload form payment confirmation
+- Contact form, and store location gps
 
 ### Note
 Database is available on dev directory [here](./dev). Make sure the database's name correct (session:admin|admin123)
